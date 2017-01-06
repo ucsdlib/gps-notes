@@ -17,11 +17,11 @@ Which of the following are valid R variable names?
 ```{r, eval=FALSE}
 min_height
 max.height
-_age
+ _age
 .mass
 MaxLength
 min-length
-2widths
+ 2widths
 celsius2kelvin
 ```
 
