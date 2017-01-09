@@ -123,19 +123,26 @@ $(document).ready(function () {
 </div>
 
 
-<div id="exercise-1-making-vectors" class="section level3">
-<h3>Exercise 1 : Making Vectors</h3>
-<p>Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called <code>LETTERS</code>)</p>
+<div id="due-118---by-start-of-class" class="section level2">
+<h2>Due 1/18 - By Start of Class</h2>
 </div>
-<div id="exercise-2-matrix" class="section level3">
-<h3>Exercise 2 : Matrix</h3>
+<div id="section" class="section level2">
+<h2></h2>
+<div id="exercise-1-making-vectors-7.5-points" class="section level3">
+<h3>Exercise 1 : Making Vectors (7.5 points)</h3>
+<p>Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called <code>LETTERS</code>)</p>
+<hr />
+</div>
+<div id="exercise-2-matrix-7.5-points" class="section level3">
+<h3>Exercise 2 : Matrix (7.5 points)</h3>
 <ol style="list-style-type: decimal">
 <li>Make a matrix containing the numbers 1:50, with 5 columns and 10 rows.</li>
 <li>Make the matrix above fill your matrix by row, not by column (its default behaviour). (hint: read the documentation for <code>matrix</code>!)</li>
 </ol>
+<hr />
 </div>
-<div id="exercise-3-data-frame" class="section level3">
-<h3>Exercise 3 : Data Frame</h3>
+<div id="exercise-3-data-frame-15-points" class="section level3">
+<h3>Exercise 3 : Data Frame (15 points)</h3>
 <p>You can create a new data frame right from within R with the following syntax:</p>
 <pre class="r"><code>df &lt;- data.frame(id = c('a', 'b', 'c'),
                   x = 1:3,
@@ -148,16 +155,17 @@ $(document).ready(function () {
 <li>lucky number</li>
 </ul>
 <p>Then use <code>rbind</code> to add an entry for the people sitting beside you. Finally, use <code>cbind</code> to add a column with each person’s answer to the question, “Is it time for coffee break?”</p>
+<hr />
 </div>
-<div id="exercise-4-lists" class="section level3">
-<h3>Exercise 4 : Lists</h3>
+<div id="exercise-4-lists-5-points" class="section level3">
+<h3>Exercise 4 : Lists (5 points)</h3>
 <p>Given the following list:</p>
 <pre class="r"><code>xlist &lt;- list(a = &quot;Software Carpentry&quot;, b = 1:10, data = head(iris))</code></pre>
 <p>Using your knowledge of both list and vector subsetting, extract the <strong>number 2</strong> from xlist. Hint: the number 2 is contained within the “b” item in the list.</p>
 <hr />
 </div>
-<div id="exercise-5-subsetting-gapminder" class="section level3">
-<h3>Exercise 5 : Subsetting gapminder</h3>
+<div id="exercise-5-subsetting-gapminder-15-points" class="section level3">
+<h3>Exercise 5 : Subsetting gapminder (15 points)</h3>
 <p>Fix each of the following common data frame subsetting errors:</p>
 <ol style="list-style-type: decimal">
 <li><p>Extract observations collected for the year 1957</p>
@@ -171,6 +179,7 @@ $(document).ready(function () {
 <li><p>Advanced: extract rows that contain information for the years 2002 and 2007</p>
 <pre class="r"><code>gapminder[gapminder$year == 2002 | 2007,]</code></pre></li>
 </ol>
+</div>
 </div>
 
 

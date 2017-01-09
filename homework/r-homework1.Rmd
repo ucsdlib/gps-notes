@@ -3,30 +3,42 @@ title: "Homework 1 - R"
 author: "Tim Dennis"
 date: "1/8/2017"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Due 1/18 - By Start of Class
+## How to submit your homework:
+1. Download the r-homework1.R script and open in Rstudio
+2. Rename `r-homework1.R` to `yourlastname_sudentID_r-homework1.R`
+3. Type the answers in the uncommented lines (those without #). Notice, some lines have gotten you started with names of objects.
+4. Save the script file.
+5. Attach the file and email to timdennis@ucsd.edu by 1/18 before 6:30pm. NOTE: Please
+use your UCSD email address when sending an email.
 
-### Exercise 1 : Making Vectors
+
+### Exercise 1 : Making Vectors (7.5 points)
 
 Start by making a vector with the numbers 1 through 26.
 Multiply the vector by 2, and give the resulting vector
 names A through Z (hint: there is a built in vector called `LETTERS`)
 
-### Exercise 2 : Matrix
+---
+
+### Exercise 2 : Matrix (7.5 points)
 
 1. Make a matrix containing the numbers 1:50, with 5 columns and 10 rows.
 2. Make the matrix above fill your matrix by
 row, not by column (its default behaviour). 
 (hint: read the documentation for `matrix`!)
 
+---
 
-### Exercise 3 : Data Frame
+### Exercise 3 : Data Frame (15 points)
 
 You can create a new data frame right from within R with the following syntax:
 ```{r}
@@ -44,8 +56,9 @@ Make a data frame that holds the following information for yourself:
 Then use `rbind` to add an entry for the people sitting beside you.
 Finally, use `cbind` to add a column with each person's answer to the question, "Is it time for coffee break?"
 
+---
 
-### Exercise 4 : Lists
+### Exercise 4 : Lists (5 points)
 
 Given the following list:
 
@@ -58,7 +71,7 @@ Hint: the number 2 is contained within the "b" item in the list.
 
 ---
 
-### Exercise 5 : Subsetting gapminder
+### Exercise 5 : Subsetting gapminder (15 points)
 
 Fix each of the following common data frame subsetting errors:
 
