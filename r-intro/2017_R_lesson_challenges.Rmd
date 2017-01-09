@@ -9,9 +9,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 
-# Lesson 1: Intro to R Challenges
+## Lesson 1: Intro to R Challenges
 
-### Challenge 1
+### Challenge 1 -- Added to quiz 
 
 Which of the following are valid R variable names?
 ```{r, eval=FALSE}
@@ -48,7 +48,9 @@ min-length
 ```
 ---
 
-### Challenge 2
+### Challenge 2 - already in quiz (maybe rewrite if needed)
+
+TODO: poss. rewrite if needed (change var names, etc.)
 
 What will be the value of each  variable  after each 
 statement in the following program?
@@ -87,7 +89,7 @@ of `r age` to the variable age.
 
 ---
 
-### Challenge 3
+### Challenge 3 - in quiz
 Run the code from the previous challenge, and write a command to
 compare mass to age. Is mass larger than age?
 
@@ -103,8 +105,7 @@ This should yield a boolean value of TRUE since `r mass` is greater than `r age`
 
 ---
 
-
-### Challenge 4
+### Challenge 4 
 
 Clean up your working environment by deleting the mass and age
 variables.
@@ -117,7 +118,7 @@ rm(age, mass)
 ```
 ---
 
-### Challenge 5
+### Challenge 5 - already in quiz
 Install the following packages: `ggplot2`, `plyr`, `gapminder`
 
 ### Solution to challenge 5
@@ -131,9 +132,9 @@ install.packages("gapminder")
 
 ---
 
-# Lesson 2: Project Management with RStudio 
+## Lesson 2: Project Management with RStudio 
 
-### Challenge 1
+### Challenge 1 - good for class! 
 
 Download the gapminder data from [here](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
 
@@ -146,7 +147,7 @@ We will load and inspect these data later.
 ---
 
 
-## Challenge 2
+### Challenge 2 - good for class 
 
 It is useful to get some general idea about the dataset, directly from the
 command line, before loading it into R. Understanding the dataset better
@@ -157,28 +158,31 @@ shell to answer the following questions:
 2. How many rows of data does it contain?
 3. What are the data types of values stored in this file
 
-## Solution to Challenge 2
+### Solution to Challenge 2
 
 By running these commands in the shell:
 ```{r, engine='bash' }
-ls -lh ~/data/gapminder-FiveYearData.csv
+#ls -lh ~/data/gapminder-FiveYearData.csv
+ls -lh ~/workshops/lecture-notes/gps-skills-2017/r-intro/data/gapminder-FiveYearData.csv
 ```
 
 
 The file size is 80K.
 ```{r, engine='bash' }
-wc -l ~/data/gapminder-FiveYearData.csv
+#wc -l ~/data/gapminder-FiveYearData.csv
+wc -l ~/workshops/lecture-notes/gps-skills-2017/r-intro/data/gapminder-FiveYearData.csv
 ```
 
 
 There are 1705 lines and the data looks like:
 ```{r, engine='bash' }
-head ~/data/gapminder-FiveYearData.csv
+#head ~/data/gapminder-FiveYearData.csv
+head ~/workshops/lecture-notes/gps-skills-2017/r-intro/data/gapminder-FiveYearData.csv
 ```
 
 ---
 
-## Challenge 3
+### Challenge 3 - in class 
 
 1. Create a directory within your project called `graphs`.
 2. Modify the `.gitignore` file to contain `graphs/`
@@ -187,7 +191,7 @@ so that this disposable output isn't versioned.
 Add the newly created folders to version control using
 the git interface.
 
-## Solution to Challenge 3
+### Solution to Challenge 3-in class
 
 This can be done with the command line:
 ```
@@ -197,9 +201,9 @@ $ echo "graphs/" >> .gitignore
 
 ---
 
-# Lesson 3: Seeking Help 
+## Lesson 3: Seeking Help 
 
-### Challenge 1
+### Challenge 1 - inclass
 
 Look at the help for the `c` function. What kind of vector do you
 expect you will create if you evaluate the following:
@@ -208,7 +212,8 @@ c(1, 2, 3)
 c('d', 'e', 'f')
 c(1, 2, 'f')`
 ```
-## Solution to Challenge 1
+
+### Solution to Challenge 1
 
 The `c()` function creates a vector, in which all elements are the
 same type. In the first case, the elements are numeric, in the
@@ -217,10 +222,12 @@ the numeric values "coerced" to be characters.
 
 ---
 
+### Challenge 2 - in the quiz 
+
 Look at the help for the `paste` function. You'll need to use this later.
 What is the difference between the `sep` and `collapse` arguments?
 
-## Solution to Challenge 2
+### Solution to Challenge 2
 
 Look at the help for the `paste` function. You'll need to use this later.
 
@@ -231,7 +238,8 @@ help("paste")
 
 ---
 
-## Challenge 3
+### Challenge 3 - in class
+
 Use help to find a function (and its associated parameters) that you could
 use to load data from a csv file in which columns are delimited with "\t"
 (tab) and the decimal point is a "." (period). This check for decimal
@@ -240,18 +248,17 @@ colleagues, because different countries have different conventions for the
 decimal point (i.e. comma vs period).
 hint: use `??csv` to lookup csv related functions.
 
-
 ---
 
-# Lesson 4: Data Structures - Part 1 
+## Lesson 4: Data Structures - Part 1 
 
-### Challenge 1
+### Challenge 1 - inclass or homework
 
 Start by making a vector with the numbers 1 through 26.
 Multiply the vector by 2, and give the resulting vector
 names A through Z (hint: there is a built in vector called `LETTERS`)
 
-## Solution to Challenge 1
+### Solution to Challenge 1
 
 ```{r}
 x <- 1:26
@@ -262,14 +269,14 @@ names(x) <- LETTERS
 ---
 
 
-## Challenge 2
+### Challenge 2 - good for class
 
 Is there a factor in our `cats` data.frame? what is its name?
 Try using `?read.csv` to figure out how to keep text columns as character
 vectors instead of factors; then write a command or two to show that the factor
 in `cats` is actually a character vector when loaded in this way.
 
-## Solution to Challenge 2
+### Solution to Challenge 2
 
 One solution is use the argument `stringAsFactors`:
 
@@ -289,7 +296,7 @@ str(cats$coat)
 ---
 
 
-## Challenge 3
+### Challenge 3
 
 There are several subtly different ways to call variables, observations and
 elements from data.frames:
@@ -350,14 +357,14 @@ values in the first row.
 
 ---
 
-## Challenge 4
+### Challenge 4 -in class
 
 What do you think will be the result of
 `length(matrix_example)`?
 Try it.
 Were you right? Why / why not?
 
-## Solution to Challenge 4
+### Solution to Challenge 4
 
 What do you think will be the result of
 `length(matrix_example)`?
@@ -373,7 +380,7 @@ gives you the total number of elements in the matrix.
 
 ---
 
-## Challenge 5
+### Challenge 5 - homework?
 
 Make another matrix, this time containing the numbers 1:50,
 with 5 columns and 10 rows.
@@ -382,7 +389,7 @@ row, as its default behaviour?
 See if you can figure out how to change this.
 (hint: read the documentation for `matrix`!)
 
-## Solution to Challenge 5
+### Solution to Challenge 5
 
 Make another matrix, this time containing the numbers 1:50,
 with 5 columns and 10 rows.
@@ -398,7 +405,7 @@ x <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
 
 ---
 
-## Challenge 6
+### Challenge 6 - homework or inclass
 Create a list of length two containing a character vector for each of the sections in this part of the workshop:
 
 - Data types
@@ -407,7 +414,8 @@ Create a list of length two containing a character vector for each of the sectio
 Populate each character vector with the names of the data types and data
 structures we've seen so far.
 
-## Solution to Challenge 6
+### Solution to Challenge 6
+
 ```{r}
 dataTypes <- c('double', 'complex', 'integer', 'character', 'logical')
 dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
@@ -419,7 +427,7 @@ to remind people of the importance of these basics.
 
 ---
 
-## Challenge 7
+### Challenge 7 - class
 
 Consider the R output of the matrix below:
 ```{r, eval=FALSE}
@@ -434,7 +442,7 @@ Think about what matrices the other commands will produce.
 3. `matrix(c(4, 9, 10, 1, 5, 7), nrow = 2)`
 4. `matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)`
 
-## Solution to Challenge 7
+### Solution to Challenge 7
 
 Consider the R output of the matrix below:
 ```{r, eval=FALSE}
@@ -449,12 +457,12 @@ matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
 
 ---
 
-# Lesson 5: Exploring Data Frames - Data Structures - Part 2 
+## Lesson 5: Exploring Data Frames - Data Structures - Part 2 
 
 ---
 
 
-## Challenge 1
+### Challenge 1 - homework
 
 You can create a new data frame right from within R with the following syntax:
 ```{r}
@@ -472,7 +480,7 @@ Make a data frame that holds the following information for yourself:
 Then use `rbind` to add an entry for the people sitting beside you.
 Finally, use `cbind` to add a column with each person's answer to the question, "Is it time for coffee break?"
 
-## Solution to Challenge 1
+### Solution to Challenge 1
 
 ```{r}
 df <- data.frame(first = c('Grace'),
@@ -485,7 +493,7 @@ df <- cbind(df, coffeetime = c(TRUE,TRUE))
 
 ---
 
-## Challenge 2
+### Challenge 2 - inclass
 
 Go to file -> new file -> R script, and write an R script
 to load in the gapminder dataset. Put it in the `scripts/`
@@ -494,7 +502,7 @@ directory and add it to version control.
 Run the script using the `source` function, using the file path
 as its argument (or by pressing the "source" button in RStudio).
 
-## Solution to Challenge 2
+### Solution to Challenge 2
 
 The contents of `script/load-gapminder.R`:
 ```{r eval = FALSE}
@@ -510,7 +518,7 @@ source(file = "scripts/load-gapminder.R")
 ---
 
 
-## Challenge 3
+### Challenge 3 - in quiz i think
 
 Read the output of `str(gapminder)` again;
 this time, use what you've learned about factors, lists and vectors,
@@ -518,7 +526,7 @@ as well as the output of functions like `colnames` and `dim`
 to explain what everything that `str` prints out for gapminder means.
 If there are any parts you can't interpret, discuss with your neighbors!
 
-## Solution to Challenge 3
+### Solution to Challenge 3
 
 The object `gapminder` is a data frame with columns
 
@@ -531,11 +539,11 @@ The object `gapminder` is a data frame with columns
 
 ---
 
-# Lesson 6: Data Subsetting 
+## Lesson 6: Data Subsetting 
 
 ---
 
-## Challenge 1
+### Challenge 1 - inclass
 
 Given the following code:
 
@@ -570,11 +578,11 @@ x[c(2,3,4)]
 
 ---
 
-## Challenge 2
+### Challenge 2 - inclass
 
 Run the following code to define vector `x` as above:
 
-```{r, eval=FALSE}
+```{r, eval=T}
 x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
 names(x) <- c('a', 'b', 'c', 'd', 'e')
 print(x)
@@ -596,7 +604,7 @@ Which of the following are true:
 * D) making an empty vector negative produces an "everything" vector
 * E) `x[]` gives the same result as `x[integer()]`
 
-## Solution to challenge 2
+### Solution to challenge 2
 
 A and C are correct.
 
@@ -611,7 +619,7 @@ values (try `str(x)` ).
 
 ---
 
-## Challenge 3
+### Challenge 3
 
 Given the following code:
 
@@ -623,7 +631,7 @@ print(x)
 
 Write a subsetting command to return the values in x that are greater than 4 and less than 7.
 
-## Solution to challenge 3
+### Solution to challenge 3
 
 ```{r, eval=FALSE}
 x_subset <- x[x<7 & x>4]
@@ -632,7 +640,7 @@ print(x_subset)
 
 ---
 
-## Challenge 4
+### Challenge 4 - added to quiz
 
 Given the following code:
 
@@ -651,13 +659,13 @@ C. `m[4:5,2]`
 
 D. `m[2,c(4,5)]`
 
-## Solution to challenge 4
+### Solution to challenge 4
 
 D
 
 ---
 
-## Challenge 5
+### Challenge 5 - homework
 Given the following list:
 
 ```{r, eval=FALSE}
@@ -667,7 +675,7 @@ xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
 Using your knowledge of both list and vector subsetting, extract the number 2 from xlist.
 Hint: the number 2 is contained within the "b" item in the list.
 
-## Solution to challenge 5
+### Solution to challenge 5
 
 ```{r, eval=FALSE}
 xlist$b[2]
@@ -681,7 +689,7 @@ xlist[["b"]][2]
 
 ---
 
-## Challenge 6
+### Challenge - 6 in class
 Given a linear model:
 
 ```{r, eval=FALSE}
@@ -690,7 +698,7 @@ mod <- aov(pop ~ lifeExp, data=gapminder)
 
 Extract the residual degrees of freedom (hint: `attributes()` will help you)
 
-## Solution to challenge 6
+### Solution to challenge 6
 
 ```{r, eval=FALSE}
 attributes(mod) ## `df.residual` is one of the names of `mod`
@@ -702,7 +710,7 @@ mod$df.residual
 ---
 
 
-## Challenge 7
+### Challenge 7 - inclass or homework
 
 Fix each of the following common data frame subsetting errors:
 
@@ -738,7 +746,7 @@ Fix each of the following common data frame subsetting errors:
     gapminder[gapminder$year == 2002 | 2007,]
     ```
 
-## Solution to challenge 7
+### Solution to challenge 7
 
 Fix each of the following common data frame subsetting errors:
 
@@ -781,7 +789,7 @@ gapminder[gapminder$year %in% c(2002, 2007),]
 ---
 
 
-## Challenge 8
+### Challenge 8 - inclass
 
 1. Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
 
@@ -789,7 +797,7 @@ gapminder[gapminder$year %in% c(2002, 2007),]
 2. Create a new `data.frame` called `gapminder_small` that only contains rows 1 through 9
 and 19 through 23. You can do this in one or two steps.
 
-## Solution to challenge 8
+### Solution to challenge 8
 
 1.  `gapminder` is a data.frame so needs to be subsetted on two dimensions. `gapminder[1:20, ]` subsets the data to give the first 20 rows and all columns.
 
