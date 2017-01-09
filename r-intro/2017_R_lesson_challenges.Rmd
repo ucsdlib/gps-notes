@@ -105,7 +105,7 @@ This should yield a boolean value of TRUE since `r mass` is greater than `r age`
 
 ---
 
-### Challenge 4 
+### Challenge 4  inclass
 
 Clean up your working environment by deleting the mass and age
 variables.
@@ -296,7 +296,7 @@ str(cats$coat)
 ---
 
 
-### Challenge 3
+### Challenge 3 - inclass
 
 There are several subtly different ways to call variables, observations and
 elements from data.frames:
@@ -380,7 +380,7 @@ gives you the total number of elements in the matrix.
 
 ---
 
-### Challenge 5 - homework?
+### Challenge 5 - homework
 
 Make another matrix, this time containing the numbers 1:50,
 with 5 columns and 10 rows.
@@ -405,7 +405,7 @@ x <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
 
 ---
 
-### Challenge 6 - homework or inclass
+### Challenge 6 - inclass
 Create a list of length two containing a character vector for each of the sections in this part of the workshop:
 
 - Data types
