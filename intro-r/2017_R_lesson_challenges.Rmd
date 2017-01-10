@@ -471,24 +471,24 @@ df <- data.frame(id = c('a', 'b', 'c'),
                   y = c(TRUE, TRUE, FALSE),
                   stringsAsFactors = FALSE)
 ```
-Make a data frame that holds the following information for yourself:
+Make a data frame that holds the following information about you:
 
-- first name
-- last name
-- lucky number
+- name
+- favorite_color
+- year_started_gps
 
 Then use `rbind` to add an entry for the people sitting beside you.
-Finally, use `cbind` to add a column with each person's answer to the question, "Is it time for coffee break?"
+Finally, use `cbind` to add a column with each person's answer to the question, "Are you hungry?"
 
 ### Solution to Challenge 1
 
 ```{r}
-df <- data.frame(first = c('Grace'),
-                 last = c('Hopper'),
-                 lucky_number = c(0),
+df <- data.frame(name = c('Grace Hopper'),
+                 favorite_color = c('red'),
+                 year_started_gps = c(2015),
                  stringsAsFactors = FALSE)
-df <- rbind(df, list('Marie', 'Curie', 238) )
-df <- cbind(df, coffeetime = c(TRUE,TRUE))
+df <- rbind(df, list('Marie Curie', 'blue', 2014) )
+df <- cbind(df, hungry = c(TRUE,TRUE))
 ```
 
 ---

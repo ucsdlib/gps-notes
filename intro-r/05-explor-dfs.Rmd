@@ -20,9 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 cats <- read.csv(file="data/feline-data.csv")
 ```
 
-## Including Plots
+## You can add a vector to the data frame
 
-You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
 age <- c(2,3,5,12)
@@ -51,7 +50,7 @@ newRow <- list("tortoiseshell", 3.3, TRUE, 9)
 cats <- rbind(cats, newRow)
 ```
 
-* another thing - when R creates a factor, it only allows whatever is originally there when our data was loaded ('black', 'calico', 'tabby')
+* Another thing - when R creates a factor, it only allows whatever is originally there when our data was loaded ('black', 'calico', 'tabby')
 * anything that doesn't fit into one of its categories is rejected
 * we need to explicitly add it as a level
 
@@ -76,7 +75,7 @@ str(cats)
 ```{r}
 cats
 ```
-* we can ask for a data.fram minus this offending row: 
+* we can ask for a data.frame minus this offending row: 
 ```{r}
 cats[-4,]
 ```
@@ -151,7 +150,7 @@ str(gapminder$country)
 
 ```
 
-* we can also interrogat the data.frame for info about itself
+* we can also interrogate the data.frame for info about itself
 * remember that str(gapminder) said there were 1704 observations of 6 variables in gapminder
 * what do you think the following will produce?
 
@@ -186,7 +185,7 @@ dim(gapminder)
 colnames(gapminder)
 ```
 * it is important to ask if the structure R is reporting matches our intuition or expectations
-* do the basic dat a types reported make sense?
+* do the basic data a types reported make sense?
 * if not we need to sort out problems now before they turn into negative surprises down the road
 
 * once we are happy that the data types and structures seem reasonable, it's time to start digging into our data properly
@@ -202,9 +201,6 @@ head(gapminder)
 
 ## Challege 3
 <http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/#challenge-3>
-
-
-
 
 
 

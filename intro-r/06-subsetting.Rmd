@@ -27,7 +27,7 @@ x
 
 ## Accessing elements using their indices
 
-* extract elements of a vector we can give their corresp. indes
+* extract elements of a vector we can give their corresp. indices
 ```{r}
 x[1]
 x[4]
@@ -117,7 +117,7 @@ x
 ```
 ## challenge 1
 
-<http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting##challenge-1>
+<http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting#challenge-1>
 
 ## Subsetting by name
 
@@ -141,13 +141,13 @@ x[-which(names(x)=="a")] # using the "-" will remove the element at that index
 * skipping multiple named indicies uses %in%
 
 * `x[-which(names(x) %in% c("a", "c"))]`
-* So why canâ€™t we use == like above? 
+* So why can't we use == like above? 
 * Because '==' expects objects of the same length and if not, will start repeating the shorter object
-* Called recycling rule 
+* Called **recycling rule**
 
 ## challenge 2
 
-<http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting##challenge-1>
+<http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting#challenge-2>
 **R recycling rule** 
 
 ```{r eval=F}
