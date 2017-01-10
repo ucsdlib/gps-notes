@@ -425,29 +425,29 @@ answer &lt;- list(dataTypes, dataStructures)</code></pre>
 <div id="lesson-5-exploring-data-frames---data-structures---part-2" class="section level2">
 <h2>Lesson 5: Exploring Data Frames - Data Structures - Part 2</h2>
 <hr />
-<div id="challenge-1---homework" class="section level3">
-<h3>Challenge 1 - homework</h3>
+<div id="challenge-1---inclass-1" class="section level3">
+<h3>Challenge 1 - inclass</h3>
 <p>You can create a new data frame right from within R with the following syntax:</p>
 <pre class="r"><code>df &lt;- data.frame(id = c('a', 'b', 'c'),
                   x = 1:3,
                   y = c(TRUE, TRUE, FALSE),
                   stringsAsFactors = FALSE)</code></pre>
-<p>Make a data frame that holds the following information for yourself:</p>
+<p>Make a data frame that holds the following information about you:</p>
 <ul>
-<li>first name</li>
-<li>last name</li>
-<li>lucky number</li>
+<li>name</li>
+<li>favorite_color</li>
+<li>year_started_gps</li>
 </ul>
-<p>Then use <code>rbind</code> to add an entry for the people sitting beside you. Finally, use <code>cbind</code> to add a column with each person’s answer to the question, “Is it time for coffee break?”</p>
+<p>Then use <code>rbind</code> to add an entry for the people sitting beside you. Finally, use <code>cbind</code> to add a column with each person’s answer to the question, “Are you hungry?”</p>
 </div>
 <div id="solution-to-challenge-1-3" class="section level3">
 <h3>Solution to Challenge 1</h3>
-<pre class="r"><code>df &lt;- data.frame(first = c('Grace'),
-                 last = c('Hopper'),
-                 lucky_number = c(0),
+<pre class="r"><code>df &lt;- data.frame(name = c('Grace Hopper'),
+                 favorite_color = c('red'),
+                 year_started_gps = c(2015),
                  stringsAsFactors = FALSE)
-df &lt;- rbind(df, list('Marie', 'Curie', 238) )
-df &lt;- cbind(df, coffeetime = c(TRUE,TRUE))</code></pre>
+df &lt;- rbind(df, list('Marie Curie', 'blue', 2014) )
+df &lt;- cbind(df, hungry = c(TRUE,TRUE))</code></pre>
 <hr />
 </div>
 <div id="challenge-2---inclass" class="section level3">
@@ -482,7 +482,7 @@ gapminder &lt;- read.csv(file = &quot;data/gapminder-FiveYearData.csv&quot;)</co
 <div id="lesson-6-data-subsetting" class="section level2">
 <h2>Lesson 6: Data Subsetting</h2>
 <hr />
-<div id="challenge-1---inclass-1" class="section level3">
+<div id="challenge-1---inclass-2" class="section level3">
 <h3>Challenge 1 - inclass</h3>
 <p>Given the following code:</p>
 <pre class="r"><code>x &lt;- c(5.4, 6.2, 7.1, 4.8, 7.5)
@@ -566,18 +566,6 @@ print(m)</code></pre>
 <h3>Solution to challenge 4</h3>
 <p>D</p>
 <hr />
-</div>
-<div id="challenge-5---homework-1" class="section level3">
-<h3>Challenge 5 - homework</h3>
-<p>Given the following list:</p>
-<pre class="r"><code>xlist &lt;- list(a = &quot;Software Carpentry&quot;, b = 1:10, data = head(iris))</code></pre>
-<p>Using your knowledge of both list and vector subsetting, extract the number 2 from xlist. Hint: the number 2 is contained within the “b” item in the list.</p>
-</div>
-<div id="solution-to-challenge-5-2" class="section level3">
-<h3>Solution to challenge 5</h3>
-<pre class="r"><code>xlist$b[2]</code></pre>
-<pre class="r"><code>xlist[[2]][2]</code></pre>
-<pre class="r"><code>xlist[[&quot;b&quot;]][2]</code></pre>
 <hr />
 </div>
 <div id="challenge---6-in-class" class="section level3">
@@ -590,53 +578,6 @@ print(m)</code></pre>
 <h3>Solution to challenge 6</h3>
 <pre class="r"><code>attributes(mod) ## `df.residual` is one of the names of `mod`</code></pre>
 <pre class="r"><code>mod$df.residual</code></pre>
-<hr />
-</div>
-<div id="challenge-7---inclass-or-homework" class="section level3">
-<h3>Challenge 7 - inclass or homework</h3>
-<p>Fix each of the following common data frame subsetting errors:</p>
-<ol style="list-style-type: decimal">
-<li><p>Extract observations collected for the year 1957</p>
-<pre class="r"><code>gapminder[gapminder$year = 1957,]</code></pre></li>
-<li><p>Extract all columns except 1 through to 4</p>
-<pre class="r"><code>gapminder[,-1:4]</code></pre></li>
-<li><p>Extract the rows where the life expectancy is longer the 80 years</p>
-<pre class="r"><code>gapminder[gapminder$lifeExp &gt; 80]</code></pre></li>
-<li><p>Extract the first row, and the fourth and fifth columns (<code>lifeExp</code> and <code>gdpPercap</code>).</p>
-<pre class="r"><code>gapminder[1, 4, 5]</code></pre></li>
-<li><p>Advanced: extract rows that contain information for the years 2002 and 2007</p>
-<pre class="r"><code>gapminder[gapminder$year == 2002 | 2007,]</code></pre></li>
-</ol>
-</div>
-<div id="solution-to-challenge-7-1" class="section level3">
-<h3>Solution to challenge 7</h3>
-<p>Fix each of the following common data frame subsetting errors:</p>
-<ol style="list-style-type: decimal">
-<li>Extract observations collected for the year 1957</li>
-</ol>
-<pre class="r"><code># gapminder[gapminder$year = 1957,]
-gapminder[gapminder$year == 1957,]</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Extract all columns except 1 through to 4</li>
-</ol>
-<pre class="r"><code># gapminder[,-1:4]
-gapminder[,-c(1:4)]</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Extract the rows where the life expectancy is longer the 80 years</li>
-</ol>
-<pre class="r"><code># gapminder[gapminder$lifeExp &gt; 80]
-gapminder[gapminder$lifeExp &gt; 80,]</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>Extract the first row, and the fourth and fifth columns (<code>lifeExp</code> and <code>gdpPercap</code>).</li>
-</ol>
-<pre class="r"><code># gapminder[1, 4, 5]
-gapminder[1, c(4, 5)]</code></pre>
-<ol start="5" style="list-style-type: decimal">
-<li>Advanced: extract rows that contain information for the years 2002 and 2007</li>
-</ol>
-<pre class="r"><code># gapminder[gapminder$year == 2002 | 2007,]
-gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
-gapminder[gapminder$year %in% c(2002, 2007),]</code></pre>
 <hr />
 </div>
 <div id="challenge-8---inclass" class="section level3">
