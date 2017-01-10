@@ -126,18 +126,25 @@ $(document).ready(function () {
 <div id="due-118---by-start-of-class" class="section level2">
 <h2>Due 1/18 - By Start of Class</h2>
 </div>
-<div id="section" class="section level2">
-<h2></h2>
+<div id="how-to-submit-your-homework" class="section level2">
+<h2>How to submit your homework:</h2>
+<ol style="list-style-type: decimal">
+<li>Download the <a href="https://raw.githubusercontent.com/ucsdlib/gps-skills-2017/master/homework/r-homework1.R">r-homework1.R</a> (save as from your browser) script and open in Rstudio</li>
+<li>Rename <code>r-homework1.R</code> to <code>yourlastname_sudentID_r-homework1.R</code> (save as in RStudio)</li>
+<li>Type the answers in the uncommented lines (those without #). Notice, for some lines, we have gotten you started with names of objects.</li>
+<li>Save the script file.</li>
+<li>Upload the file to tritonEd (we are working on getting that set up). Alternately, attach the file and email to <a href="mailto:timdennis@ucsd.edu">timdennis@ucsd.edu</a> by 1/18 before 6:30pm. NOTE: Please use your UCSD email address when sending an email.</li>
+</ol>
 <div id="exercise-1-making-vectors-7.5-points" class="section level3">
 <h3>Exercise 1 : Making Vectors (7.5 points)</h3>
-<p>Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called <code>LETTERS</code>)</p>
+<p>Start by making a vector named ‘myvector’ with the numbers 1 through 26. Create another vector named, ‘myvectimestwo’ by multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called <code>LETTERS</code>)</p>
 <hr />
 </div>
 <div id="exercise-2-matrix-7.5-points" class="section level3">
 <h3>Exercise 2 : Matrix (7.5 points)</h3>
 <ol style="list-style-type: decimal">
-<li>Make a matrix containing the numbers 1:50, with 5 columns and 10 rows.</li>
-<li>Make the matrix above fill your matrix by row, not by column (its default behaviour). (hint: read the documentation for <code>matrix</code>!)</li>
+<li>Make a matrix called “mymatrix” containing the numbers 1:50, with 5 columns and 10 rows. Print the matrix out.</li>
+<li>Make the “mymatrix” matrix above fill by row, not by column (its default behaviour). Print out the matrix. (hint: read the documentation for <code>matrix</code>!)</li>
 </ol>
 <hr />
 </div>
@@ -154,19 +161,21 @@ $(document).ready(function () {
 <li>last name</li>
 <li>lucky number</li>
 </ul>
-<p>Then use <code>rbind</code> to add an entry for the people sitting beside you. Finally, use <code>cbind</code> to add a column with each person’s answer to the question, “Is it time for coffee break?”</p>
+<p>Column names should be first_name, last_name, &amp; lucky_number Then use <code>rbind</code> to add an entry for someone else in the class or someone you know. Finally, use <code>cbind</code> to add a column named ‘coffee’ with each person’s answer to the question, “Is it time for coffee break?”</p>
 <hr />
 </div>
 <div id="exercise-4-lists-5-points" class="section level3">
 <h3>Exercise 4 : Lists (5 points)</h3>
 <p>Given the following list:</p>
 <pre class="r"><code>xlist &lt;- list(a = &quot;Software Carpentry&quot;, b = 1:10, data = head(iris))</code></pre>
-<p>Using your knowledge of both list and vector subsetting, extract the <strong>number 2</strong> from xlist. Hint: the number 2 is contained within the “b” item in the list.</p>
+<p>Using your knowledge of both list and vector subsetting, extract the <strong>number 2</strong> from xlist. Hint: the number 2 is contained within the “b” item in the list. Look up how to subset lists from the lecture notes.</p>
 <hr />
 </div>
 <div id="exercise-5-subsetting-gapminder-15-points" class="section level3">
 <h3>Exercise 5 : Subsetting gapminder (15 points)</h3>
-<p>Fix each of the following common data frame subsetting errors:</p>
+<p>To answer these questions, you will need gapminder data loaded. Below I’ll load it from the web. When you run it you should see a ‘gapminder’ data object in the ‘Environment’ on the top right of RStudio.</p>
+<p><code>gapminder &lt;- read.csv(&quot;https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv&quot;)</code></p>
+<p>Fix each of the following common data frame subsetting errors: WRAP the answers in the head() function to reduce the output to the console and log. For example, to get the first three rows and 2-3 columns:</p>
 <ol style="list-style-type: decimal">
 <li><p>Extract observations collected for the year 1957</p>
 <pre class="r"><code>gapminder[gapminder$year = 1957,]</code></pre></li>
