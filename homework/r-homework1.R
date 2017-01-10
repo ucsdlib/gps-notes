@@ -5,8 +5,8 @@
 #3. Type the answers in the uncommented lines (those without #). Notice, for some lines, we have 
 #gotten you started with names of objects.
 #4. Save the script file.
-#5. Attach the file and email to timdennis@ucsd.edu by 1/18 before 6:30pm. NOTE: Please
-# use your UCSD email address when sending an email.
+#5.Upload the file to tritonEd (we are working on getting that set up). Alternately, attach the file and email to 
+# timdennis@ucsd.edu by 1/18 before 6:30pm. NOTE: Please use your UCSD email address when sending an email. 
 
 # To help us identify you in the logs we use for grading please add your name and id number below:
 

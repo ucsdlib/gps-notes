@@ -13,29 +13,26 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Due 1/18 - By Start of Class
 ## How to submit your homework:
-1. Download the r-homework1.R script and open in Rstudio
-2. Rename `r-homework1.R` to `yourlastname_sudentID_r-homework1.R`
-3. Type the answers in the uncommented lines (those without #). Notice, some lines have gotten you started with names of objects.
+1. Download the [r-homework1.R](https://raw.githubusercontent.com/ucsdlib/gps-skills-2017/master/homework/r-homework1.R) (save as from your browser) script and open in Rstudio
+2. Rename `r-homework1.R` to `yourlastname_sudentID_r-homework1.R` (save as in RStudio)
+3. Type the answers in the uncommented lines (those without #). Notice, for some lines, we have gotten you started with names of objects.
 4. Save the script file.
-5. Attach the file and email to timdennis@ucsd.edu by 1/18 before 6:30pm. NOTE: Please
-use your UCSD email address when sending an email.
+5. Upload the file to tritonEd (we are working on getting that set up). Alternately, attach the file and email to timdennis@ucsd.edu by 1/18 before 6:30pm. NOTE: Please use your UCSD email address when sending an email.  
 
 
 ### Exercise 1 : Making Vectors (7.5 points)
 
-Start by making a vector with the numbers 1 through 26.
-Multiply the vector by 2, and give the resulting vector
-names A through Z (hint: there is a built in vector called `LETTERS`)
+Start by making a vector named 'myvector' with the numbers 1 through 26.
+Create another vector named, 'myvectimestwo' by multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called `LETTERS`)
 
 ---
 
 ### Exercise 2 : Matrix (7.5 points)
 
-1. Make a matrix containing the numbers 1:50, with 5 columns and 10 rows.
-2. Make the matrix above fill your matrix by
-row, not by column (its default behaviour). 
+1. Make a matrix called "mymatrix" containing the numbers 1:50, with 5 columns and 10 rows. Print the matrix out.
+2. Make the "mymatrix" matrix above fill by row, not by column (its default behaviour). Print out the matrix.
 (hint: read the documentation for `matrix`!)
-
+ 
 ---
 
 ### Exercise 3 : Data Frame (15 points)
@@ -53,8 +50,9 @@ Make a data frame that holds the following information for yourself:
 - last name
 - lucky number
 
-Then use `rbind` to add an entry for the people sitting beside you.
-Finally, use `cbind` to add a column with each person's answer to the question, "Is it time for coffee break?"
+Column names should be first_name, last_name, & lucky_number
+Then use `rbind` to add an entry for someone else in the class or someone you know.
+Finally, use `cbind` to add a column named 'coffee' with each person's answer to the question, "Is it time for coffee break?"
 
 ---
 
@@ -67,13 +65,20 @@ xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
 ```
 
 Using your knowledge of both list and vector subsetting, extract the **number 2** from xlist.
-Hint: the number 2 is contained within the "b" item in the list.
+Hint: the number 2 is contained within the "b" item in the list.  Look up how to subset lists
+from the lecture notes. 
 
 ---
 
 ### Exercise 5 : Subsetting gapminder (15 points)
+To answer these questions, you will need gapminder data loaded. Below I'll load it from the  web. When you run it you should see a 'gapminder' data object in the 'Environment' on the  top right of RStudio.
+
+`gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")`
+
 
 Fix each of the following common data frame subsetting errors:
+WRAP the answers in the head() function to reduce the output to the console and log. 
+For example, to get the first three rows and 2-3 columns:
 
 1. Extract observations collected for the year 1957
 
