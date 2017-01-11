@@ -134,9 +134,8 @@ $(document).ready(function () {
 <pre><code>## Warning in read.table(file = file, header = header, sep = sep, quote =
 ## quote, : incomplete final line found by readTableHeader on 'data/feline-
 ## data.csv'</code></pre>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
+<div id="you-can-add-a-vector-to-the-data-frame" class="section level2">
+<h2>You can add a vector to the data frame</h2>
 <pre><code>##     coat weight likes_string
 ## 1 calico    2.1            1
 ## 2  black    5.0            0
@@ -167,7 +166,7 @@ cats &lt;- rbind(cats, newRow)</code></pre>
 <pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, ri, value = structure(c(2L, 1L, 3L,
 ## NA), .Label = c(&quot;black&quot;, : invalid factor level, NA generated</code></pre>
 <ul>
-<li>another thing - when R creates a factor, it only allows whatever is originally there when our data was loaded (‘black’, ‘calico’, ‘tabby’)</li>
+<li>Another thing - when R creates a factor, it only allows whatever is originally there when our data was loaded (‘black’, ‘calico’, ‘tabby’)</li>
 <li>anything that doesn’t fit into one of its categories is rejected</li>
 <li>we need to explicitly add it as a level</li>
 </ul>
@@ -204,7 +203,7 @@ str(cats)</code></pre>
 ## 4          &lt;NA&gt;    3.3            1   9
 ## 5 tortoiseshell    3.3            1   9</code></pre>
 <ul>
-<li>we can ask for a data.fram minus this offending row:</li>
+<li>we can ask for a data.frame minus this offending row:</li>
 </ul>
 <pre class="r"><code>cats[-4,]</code></pre>
 <pre><code>##            coat weight likes_string age
@@ -300,7 +299,7 @@ gapminder &lt;- read.csv(&quot;data/gapminder-FiveYearData.csv&quot;)</code></pr
 <pre class="r"><code>str(gapminder$country)</code></pre>
 <pre><code>##  Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <ul>
-<li>we can also interrogat the data.frame for info about itself</li>
+<li>we can also interrogate the data.frame for info about itself</li>
 <li>remember that str(gapminder) said there were 1704 observations of 6 variables in gapminder</li>
 <li>what do you think the following will produce?</li>
 </ul>
@@ -332,7 +331,7 @@ gapminder &lt;- read.csv(&quot;data/gapminder-FiveYearData.csv&quot;)</code></pr
 <pre><code>## [1] &quot;country&quot;   &quot;year&quot;      &quot;pop&quot;       &quot;continent&quot; &quot;lifeExp&quot;   &quot;gdpPercap&quot;</code></pre>
 <ul>
 <li>it is important to ask if the structure R is reporting matches our intuition or expectations</li>
-<li>do the basic dat a types reported make sense?</li>
+<li>do the basic data a types reported make sense?</li>
 <li><p>if not we need to sort out problems now before they turn into negative surprises down the road</p></li>
 <li><p>once we are happy that the data types and structures seem reasonable, it’s time to start digging into our data properly</p></li>
 </ul>
