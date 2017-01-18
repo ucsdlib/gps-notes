@@ -122,14 +122,15 @@ $(document).ready(function () {
 
 <div id="challenge-1" class="section level2">
 <h2>Challenge 1</h2>
-<p>Modify the example so that the figure visualise how life expectancy has changed over time:</p>
+<p>Modify the example figure so that the new figure visualise how life expectancy has changed over time:</p>
+<p>Example figure: <a href="http://swcarpentry.github.io/r-novice-gapminder/fig/rmd-08-lifeExp-vs-gdpPercap-scatter2-1.png" class="uri">http://swcarpentry.github.io/r-novice-gapminder/fig/rmd-08-lifeExp-vs-gdpPercap-scatter2-1.png</a></p>
 <p>Hint: the gapminder dataset has a column called “year”, which should appear on the x-axis.</p>
 <pre class="r"><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()</code></pre>
 <hr />
 </div>
 <div id="challenge-2" class="section level2">
 <h2>Challenge 2</h2>
-<p>In the previous examples and challenge we’ve used the aes function to tell the scatterplot geom about the x and y locations of each point. Another aesthetic property we can modify is the point color. Modify the code from the previous challenge to color the points by the “continent” column. What trends do you see in the data? Are they what you expected?</p>
+<p>In the previous examples and challenge in the lesson we’ve used the <strong>aes</strong> function to tell the scatterplot geom about the <strong>x</strong> and <strong>y</strong> locations of each point. Another aesthetic property we can modify is the <strong>point color</strong>. Modify the code from the previous challenge to color the points by the “continent” column. What trends do you see in the data? Are they what you expected?</p>
 <hr />
 </div>
 <div id="challenge-3" class="section level2">
@@ -141,6 +142,7 @@ $(document).ready(function () {
 <div id="challenge-4a" class="section level2">
 <h2>Challenge 4a</h2>
 <p>Modify the color and size of the points on the point layer in the previous example.</p>
+<p>Previous example: <a href="http://swcarpentry.github.io/r-novice-gapminder/fig/rmd-08-lm-fit2-1.png" class="uri">http://swcarpentry.github.io/r-novice-gapminder/fig/rmd-08-lm-fit2-1.png</a></p>
 <pre class="r"><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method=&quot;lm&quot;, size=1.5)</code></pre>
 <p>Hint: do not use the aes function.</p>
@@ -149,6 +151,7 @@ $(document).ready(function () {
 <div id="challenge-4b" class="section level2">
 <h2>Challenge 4b</h2>
 <p>Modify your solution to Challenge 4a so that the points are now a different shape and are colored by continent with new trendlines.</p>
+<p>Solution 4a Plot: <a href="http://swcarpentry.github.io/r-novice-gapminder/fig/rmd-08-ch4a-sol-1.png" class="uri">http://swcarpentry.github.io/r-novice-gapminder/fig/rmd-08-ch4a-sol-1.png</a></p>
 <p>Hint: The color argument can be used inside the aesthetic.</p>
 <pre class="r"><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
  geom_point(size=3, color=&quot;orange&quot;) + scale_x_log10() +
