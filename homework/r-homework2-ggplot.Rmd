@@ -29,6 +29,8 @@ gapminder <- read.csv('data/gapminder-FiveYearData.csv')
 library(ggplot2)
 ```
 
+**Each questions worth 10 points -- 50 points total**
+
 ## Question 1. Adding text to the graph
 
 The following code produces multiple panels of life expectancy over time from `gapminder` focusing only on those countries with names that start with the letter “A” or “Z”.
