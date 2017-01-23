@@ -31,7 +31,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 # 
 # We can do this by adding a couple of different layers. The theme layer controls the axis text, and overall text size, and there are special layers for changing the axis labels. To change the legend title, we need to use the scales layer.
 # 
-# Set the title to "Figure 1", Y label to "Year", X Label to "Life expectancy", and Legend title to "Continent". Use these functions to set those.
+# Set the title to "Figure 1", X label to "Year", Y Label to "Life expectancy", and Legend title to "Continent". Use these functions to set those.
 
 # * title = ggtitle()
 # * X label = xlab()
