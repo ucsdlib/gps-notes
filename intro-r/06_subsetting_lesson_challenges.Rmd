@@ -1,0 +1,170 @@
+---
+title: "06_subsetting_lesson_challenges"
+output: html_document
+---
+
+## Challenge 1
+
+Given the following code:
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+```
+
+Come up with at least 3 different commands that will produce the following output:
+
+```{r, echo=FALSE}
+x[2:4]
+```
+
+After you find 3 different commands, compare notes with your neighbour. Did you have different strategies?
+
+---
+
+## Challenge 2
+
+Run the following code to define vector `x` as above:
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+```
+
+Given this vector `x`, what would you expect the following to do?
+
+```{r, eval=FALSE}
+x[-which(names(x) == "g")]
+```
+
+Try out this command and see what you get. Did this match your expectation?
+
+Why did we get this result? (Tip: test out each part of the command on it's own - this is a useful debugging strategy)
+
+Which of the following are true:
+
+* A) if there are no `TRUE` values passed to `which`, an empty vector is returned
+* B) if there are no `TRUE` values passed to `which`, an error message is shown
+* C) `integer()` is an empty vector
+* D) making an empty vector negative produces an "everything" vector
+* E) `x[]` gives the same result as `x[integer()]`
+
+
+---
+
+## Challenge 3
+
+Given the following code:
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+```
+
+Write a subsetting command to return the values in x that are greater than 4 and less than 7.
+
+
+---
+
+## Challenge 4
+
+Given the following code:
+
+```{r}
+m <- matrix(1:18, nrow=3, ncol=6)
+print(m)
+```
+
+1. Which of the following commands will extract the values 11 and 14?
+
+A. `m[2,4,2,5]`
+
+B. `m[2:5]`
+
+C. `m[4:5,2]`
+
+D. `m[2,c(4,5)]`
+
+
+
+---
+
+
+## Challenge 5
+Given the following list:
+
+```{r, eval=FALSE}
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+```
+
+Using your knowledge of both list and vector subsetting, extract the number 2 from xlist.
+Hint: the number 2 is contained within the "b" item in the list.
+
+
+---
+
+## Challenge 6
+
+Given a linear model:
+
+```{r, eval=FALSE}
+mod <- aov(pop ~ lifeExp, data=gapminder)
+```
+
+Extract the residual degrees of freedom (hint: `attributes()` will help you)
+
+
+
+---
+
+## Challenge 7
+
+Fix each of the following common data frame subsetting errors:
+
+1. Extract observations collected for the year 1957
+
+```{r, eval=FALSE}
+   gapminder[gapminder$year = 1957,]
+```
+
+2. Extract all columns except 1 through to 4
+
+```{r, eval=FALSE}
+   gapminder[,-1:4]
+```
+
+3. Extract the rows where the life expectancy is longer the 80 years
+
+```{r, eval=FALSE}
+   gapminder[gapminder$lifeExp > 80]
+```
+
+4. Extract the first row, and the fourth and fifth columns
+  (`lifeExp` and `gdpPercap`).
+
+```{r, eval=FALSE}
+   gapminder[1, 4, 5]
+```
+
+5. Advanced: extract rows that contain information for the years 2002 and 2007
+
+```{r, eval=FALSE}
+   gapminder[gapminder$year == 2002 | 2007,]
+```
+
+
+ 
+---
+ 
+## Challenge 8
+
+1. Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
+
+
+2. Create a new `data.frame` called `gapminder_small` that only contains rows 1 through 9
+and 19 through 23. You can do this in one or two steps.
+
+
