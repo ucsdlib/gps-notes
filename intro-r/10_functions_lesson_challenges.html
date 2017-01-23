@@ -124,40 +124,16 @@ $(document).ready(function () {
 <h2>Challenge 1</h2>
 <p>Write a function called <code>kelvin_to_celsius</code> that takes a temperature in Kelvin and returns that temperature in Celsius</p>
 <p>Hint: To convert from Kelvin to Celsius you minus 273.15</p>
-</div>
-<div id="solution-to-challenge-1" class="section level2">
-<h2>Solution to challenge 1</h2>
-<p>Write a function called <code>kelvin_to_celsius</code> that takes a temperature in Kelvin and returns that temperature in Celsius</p>
-<pre class="r"><code>kelvin_to_celsius &lt;- function(temp) {
-  celsius &lt;- temp - 273.15
-  return(celsius)
-}</code></pre>
 <hr />
 </div>
 <div id="challenge-2" class="section level2">
 <h2>Challenge 2</h2>
 <p>Define the function to convert directly from Fahrenheit to Celsius, by reusing the two functions above (or using your own functions if you prefer).</p>
-</div>
-<div id="solution-to-challenge-2" class="section level2">
-<h2>Solution to challenge 2</h2>
-<p>Define the function to convert directly from Fahrenheit to Celsius, by reusing these two functions above</p>
-<pre class="r"><code>fahr_to_celsius &lt;- function(temp) {
-   temp_k &lt;- fahr_to_kelvin(temp)
-   result &lt;- kelvin_to_celsius(temp_k)
-   return(result)
-}</code></pre>
 <hr />
 </div>
 <div id="challenge-3" class="section level2">
 <h2>Challenge 3</h2>
 <p>Test out your GDP function by calculating the GDP for New Zealand in 1987. How does this differ from New Zealand’s GDP in 1952?</p>
-</div>
-<div id="solution-to-challenge-3" class="section level2">
-<h2>Solution to challenge 3</h2>
-<ol style="list-style-type: decimal">
-<li><p>GDP for New Zealand in 1987: 65050008703</p></li>
-<li><p>GDP for New Zealand in 1952: 21058193787</p></li>
-</ol>
 <hr />
 </div>
 <div id="challenge-4" class="section level2">
@@ -168,18 +144,6 @@ paste(best_practice, collapse=&quot; &quot;)</code></pre>
 <pre><code>## [1] &quot;Write programs for people not computers&quot;</code></pre>
 <p>Write a function called <code>fence</code> that takes two vectors as arguments, called <code>text</code> and <code>wrapper</code>, and prints out the text wrapped with the <code>wrapper</code>:</p>
 <p><em>Note:</em> the <code>paste</code> function has an argument called <code>sep</code>, which specifies the separator between text. The default is a space: &quot; “. The default for <code>paste0</code> is no space”“.</p>
-</div>
-<div id="solution-to-challenge-4" class="section level2">
-<h2>Solution to challenge 4</h2>
-<p>Write a function called <code>fence</code> that takes two vectors as arguments, called <code>text</code> and <code>wrapper</code>, and prints out the text wrapped with the <code>wrapper</code>:</p>
-<pre class="r"><code>fence &lt;- function(text, wrapper){
-   text &lt;- c(wrapper, text, wrapper)
-   result &lt;- paste(text, collapse = &quot; &quot;)
-   return(result)
-}
-best_practice &lt;- c(&quot;Write&quot;, &quot;programs&quot;, &quot;for&quot;, &quot;people&quot;, &quot;not&quot;, &quot;computers&quot;)
-fence(text=best_practice, wrapper=&quot;***&quot;)</code></pre>
-<pre><code>## [1] &quot;*** Write programs for people not computers ***&quot;</code></pre>
 <hr />
 </div>
 
