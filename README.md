@@ -18,8 +18,3 @@ A repo for coding notebooks, lecture notes, and assignments for the GPS skills c
 
 1. Homework 1
 2. [Homework 2](https://ucsdlib.github.io/gps-skills-2017/homework/r-homework2-ggplot.html)
-08_ggplot2_lesson_challenges.html
-[13] "08_ggplot2_lesson_challenges.Rmd" 
-"08_ggplot2_lesson_solutions.html"  
-2017_R_lesson_challenges.html"    
-2017_R_lesson_challenges.Rmd
