@@ -18,3 +18,4 @@ A repo for coding notebooks, lecture notes, and assignments for the GPS skills c
 
 1. Homework 1
 2. [Homework 2](https://ucsdlib.github.io/gps-skills-2017/homework/r-homework2-ggplot.html)
+3. [Homework 3](homework/r-homework3-funct-dplyr.html)
