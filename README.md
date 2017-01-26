@@ -13,6 +13,7 @@ A repo for coding notebooks, lecture notes, and assignments for the GPS skills c
 6. [Subsetting](intro-r/06-subsetting.html)
 7. [Vectorization](intro-r/09-vectorization.html)
 8. [Functions](intro-r/10-functions.html)
+9. [Tidyr and Dplyr](intro-r/13-14-dplyr-tidyr.html)
 
 ## Homework: 
 

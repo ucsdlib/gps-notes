@@ -112,7 +112,7 @@ str(gapminder %>% group_by(continent))
 ```
 
 * You will notice that the structure of the dataframe where we used group_by() (grouped_df) is not the same as the original gapminder (data.frame).
-* A grouped_df can be thought of as a list where each item in the listis a data.frame which contains only the rows that correspond to the a particular value continent (at least in the example above).
+* A grouped_df can be thought of as a list where each item in the list is a data.frame which contains only the rows that correspond to the a particular value continent (at least in the example above).
 
 ![gapminder-group](http://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig2.png)
 
@@ -185,7 +185,7 @@ ggplot(data = az.countries, aes(x = year, y = gdpPercap, color = continent)) +
 
 * This code makes the right plot but it also creates some variables (starts.with and az.countries) that we might not have any other uses for
 * Just like we used ` %>% ` to pipe data along a chain of dplyr function we can use it to pass data to `ggplot()`. 
-* because ` %>% ` uses replaces the first arg. in a fucnctions we don't need to specify the data= argument 
+* because ` %>% ` uses replaces the first arg. in a functions we don't need to specify the data= argument 
 * let's see this works with the above graph
 
 ```{r}
@@ -259,7 +259,7 @@ str(gapminder)
 * I usually prefer this intermediate format in most cases good despite not having ALL observations in 1 column given that all 3 observation variables have different units.
 * There are few operations that would need us to stretch out this dataframe any longer (i.e. 4 ID variables and 1 Observation variable).
 
-* many funcitons in r, which are often vector based, you usually do not want to do mathematical operations on values with different units.
+* many functions in r, which are often vector based, you usually do not want to do mathematical operations on values with different units.
 * using the purely long format, a single mean for all of the values of population, life expectancy, and GDP would not be meaningful since it would return the mean of values with 3 incompatible units.
 * The solution is that we first manipulate the data either by grouping (see the lesson on dplyr), or we change the structure of the dataframe.
 * Note: Some plotting functions in R actually work better in the wide format data.
@@ -272,7 +272,7 @@ str(gapminder)
 
 ## Example from last class
 ```{r iris}
-library(tidyrß)
+library(tidyr )
 df <- gather(iris, variable, value, -Species )
 ggplot(df, aes(Species, value, fill = variable)) + geom_bar(stat = "identity")
 ```
@@ -295,11 +295,11 @@ gap_long <- gap_wide %>%
 str(gap_long)
 ```
 * we've used piping syntax like we did in dplyr
-* in fact, these are compatible and you can use a mix of tidyr and dplyr funcitons togeth
+* in fact, these are compatible and you can use a mix of tidyr and dplyr functions together
 
 * inside `gather()` we first name the new column for the new ID variable (obstyper_year), the name for the new amalgamated observation variable (obs_value), then the names of the old observation variables.
 * we could have typed out all the observation variables but as in the `select()` function in dplyr, we can use `starts_with()` argument to select all variables that start with the desired string
-* gather also allows alternate syntax of using the `-` symbol to identify which variabels are not to be gathered (i.e. ID variables)
+* gather also allows alternate syntax of using the `-` symbol to identify which variables are not to be gathered (i.e. ID variables)
 
 ![longformat](http://swcarpentry.github.io/r-novice-gapminder/fig/14-tidyr-fig3.png)
 ```{r with-exclude}
@@ -307,7 +307,7 @@ gap_long <- gap_wide %>% gather(obstype_year,obs_values,-continent,-country)
 str(gap_long)
 ```
 
-* this may seem trival with this dataset, but sometimes you have 1 ID variable and 40 Observations variables with irregular variable names
+* this may seem trivial with this dataset, but sometimes you have 1 ID variable and 40 Observations variables with irregular variable names
 * flexibility is a big time saver!
 
 * now `obstype_year` contains 2 pieces of information, the observation type(pop, lifeExp, or gdpPercap) and the year.
@@ -322,7 +322,7 @@ gap_long$year <- as.integer(gap_long$year)
 ## From long to intermediate format with `spread()`
 
 * let's use the opposite of `gather` to spread our observation variables back out
-* we cna then spread `gap_long()` to the original intermediate format or the widest format
+* we can then spread `gap_long()` to the original intermediate format or the widest format
 * let's start with intermediate format
 
 ```{r gap-norm}
@@ -346,11 +346,11 @@ We’re almost there, the original was sorted by country, continent, then year.
 gap_normal <- gap_normal %>% arrange(country,continent,year)
 all.equal(gap_normal,gapminder)
 ```
-* great we've gone from longest format back to the intermediate and didn't introcude any errors in our code
-* now let's conver the long all the way back to the wide
+* great we've gone from longest format back to the intermediate and didn't introduce any errors in our code
+* now let's cover the long all the way back to the wide
 * in the wide format, we will keep country and continent as ID variables and spread the observations across the 3 metrics (pop, lifeExp, gdpPercap) and time (year)
-* we need appropriate lables for all our new variables (time*metric combinations)
-* we also need to unify our ID varialbes to simplify the process of defining gap_wide
+* we need appropriate labels for all our new variables (time*metric combinations)
+* we also need to unify our ID variables to simplify the process of defining gap_wide
 
 ```{r}
 gap_temp <- gap_long %>% unite(var_ID,continent,country,sep="_")
