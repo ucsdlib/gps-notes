@@ -290,7 +290,7 @@ gapminder[3,] #is a data frame b/c of the mixed types
 ```
 ## Challenge 7 
 
-<http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting##challenge-7>
+<http://swcarpentry.github.io/r-novice-gapminder/06-data-subsetting#challenge-7>
 
 
 

@@ -199,5 +199,3 @@ calcGDP(gapminder, year=2007, country="Australia")
 * and then subset the rows
 * scoping 
 * calculate gdp and creeate a new data frame with column to return 
-
-### Lab cover 
