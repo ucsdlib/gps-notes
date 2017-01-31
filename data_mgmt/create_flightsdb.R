@@ -1,4 +1,5 @@
 library(dplyr)
+library(nycflights13)
 #install.packages('RSQLite')
 library(RSQLite)
 nycfights_gps <- src_sqlite("data_mgmt/nycfights_gps.sqlite3", create = T) 
