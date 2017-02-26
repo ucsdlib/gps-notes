@@ -16,7 +16,7 @@ Learning objectives:
 ## Materials Overview
 
 ## ***Activity***
-download materials from [OSF Github repo]
+**download materials from [OSF Github repo]**
 
 ## Creating a project
 * We talked before about the problems that can arise when we either don’t document work, or we try and go and back document work once a study is accepted for publication. This becomes even more challenging when you have multiple collaborators, especially if they are at different institutions, and you have been sending materials back and forth by email.
@@ -32,7 +32,7 @@ download materials from [OSF Github repo]
 * A **project** on the site can be anything: a lab group, an organization, a grant, a line of research, an individual experiment, etc.
 
 ## ***Activity***
-Since we don’t have any projects yet, and we’re only going to be working on one research project, lets just create a project for that one study.
+Since we don’t have any projects yet, and we’re only going to be working on one research project, lets just **create a project for that one study.**
 
 * Select a person in your group to create a project.
 
@@ -86,7 +86,7 @@ There are three possible settings:
   * **read** - contributor can see into the project and can download any files they want, but they will not be able to add any files or modify any content.
 
 ## ***Activity***
-* add your contributors/collaborators to your project.
+**add contributors/collaborators to your project.**
 
 * You can decide what level of access you want to give them, but keep in mind that later on both are going to need the ability to upload files.
 
@@ -115,7 +115,7 @@ In the OSF, a good place to put this type of information is in the **wiki**.
 You get into the **wiki** by **clicking on the widget**, and then click on the **edit** button in the upper right to open up the editor.
 
 ## ***Activity***
-Create wiki with a Research Question and hypothesis.
+**Create wiki with a Research Question and hypothesis.**
 
 * Take a minute to set up a wiki for the project.
 
@@ -123,20 +123,56 @@ Create wiki with a Research Question and hypothesis.
 
 * Then collaboratively enter your research question and hypotheses, if you have them, into the wiki.
 
-# Adding organizational structure: TIER Protocol 3.0
+# Adding organizational structure
 Right now our project is pretty flat. It is basically just one big folder with a wiki with some basic content in it.
 
 For most projects, we’ll want to add some structure.
 
-To do this we can follow and create the **TIER Protocol 3.0** folder structure to the project.  
+We can add sections to organize related files, for example we might want to organize all our data files together and separate those from files related to protocols or study materials.
 
-or
+You can do this in two ways on the OSF depending on your preference.
 
-We can also add sections to organize related files, for example we might want to organize all our data files together and separate those from files related to protocols or study materials.
+**First Way - Components:**
+* The primary way to add structure to a project is to add **components**.
 
-For this demo we are going to add components to the project.  
+* You do this by clicking the **add component** button on the right of the screen.
 
-In the next class you will implement the TIER Protocol 3.0.
+You can name the component whatever you want (materials, data, protocol, IRB, etc.) and you can also give it a category.
+
+Once the component is created, we can go into it and see that the inside of all components looks just like an empty project; they have their own file trees, wikis, contributor lists, and privacy settings.
+
+**Second Way: - Folders**
+
+**Folders** are another organization option that function a bit differently.
+* A folder is literally just a way to group a set of files, nothing more.
+
+* Click on the OSF storage icon and you will notice a **create folder** button will appear.
+
+* A folder will appear which he can then name whatever we want.
+
+**Folders are just about organizing files together**, while **components** are good for setting up large sections of a project.
+
+
+### Folder organization using the **TIER Protocol 3.0**
+One good example of folder organization is the **TIER Protocol 3.0** folder structure to the project.  
+
+**[need TIER Info here]**
+
+
+
+# ***Tip***
+You can also nest components within components.
+
+This allows you to set up areas that have different privacy settings or contributor lists from other sections in the project, which can be important for having fine grained control over access to different parts of a project.
 
 
 ## ***Activity***
+**Create project structure using folders/components**
+
+Set up some initial structure for your project.
+
+Think through what are the major categories of file types you’ll have, and whether you might want to have different contributors or public vs. private access setting for them to determine whether you want to set them up as folders or components.
+
+* Use the TIER Protocol 3.0 folder structure.
+
+* Or experiment with setting up components.
