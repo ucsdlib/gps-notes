@@ -2,7 +2,7 @@
 
 ##### Lesson adapted from Jolene Esposito OSF-Curriculum
 
-## Setting up a collaborative space
+# Lesson 2: Setting up a collaborative space
 
 Learning objectives:
 
@@ -176,3 +176,47 @@ Think through what are the major categories of file types you’ll have, and whe
 * Use the TIER Protocol 3.0 folder structure.
 
 * Or experiment with setting up components.
+
+
+# Add-ons
+
+The last thing we’re going to do for this lesson is to add some background literature to the project.
+
+we’re going to take advantage of the OSFs add-on capabilities.
+
+* Add-ons allow you to connect third party services to the OSF so you can continue to use the tools that you like, but connect them so that you, your collaborators, and readers of your work, only have to go to one place to find all aspects of your project.
+
+* If you go to the **settings** page of your project you can see the different add-ons that are available.
+
+### Add-on ***Activity***
+**Using one of the storage add-ons.**
+
+I’m going to show it with Google Drive, but if you don’t have a Drive account you can use Box or anything on the list.
+
+* find the files we shared for this lesson.
+
+* Log into into your chosen storage account and create a folder called **demo project** and then upload the files to that folder.
+
+* Now, go to your **OSF project and create a new component** for the files just uploaded.
+
+We don’t have to put the add-on in it’s own component, but this will allow us to keep these PDFs private if we decide we want to make the rest of the project public.
+
+* When you’re inside the new **project component**, go to the **settings tab** and check the Google Drive add-on, or whichever one you are going to use.
+
+This will bring up some information on exactly how this add-on will function.
+
+* Click **confirm**, and then click **apply** below the list of add-ons.
+
+You will then be asked to connect your account.
+
+You’ll be taken to Google Drive where you will have to input your username and password, and will then be asked to allow OSF access to your Google Drive.
+
+* Back at the OSF, you’ll now see a list of all your Google Drive folders in your project.
+
+* **Select whichever folder you want to connect** to your project and click **save.**
+
+* Go back to your project and you will see that the files appear within the demo project component.
+
+What this has done is create a two-way door between the OSF and Google Drive.
+
+Any changes we make to that Google Drive folder will show up in our project, and any changes we make to the materials from the OSF will show up in Google Drive.

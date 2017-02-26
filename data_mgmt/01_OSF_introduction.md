@@ -2,7 +2,7 @@
 
 ##### Lesson adapted from Jolene Esposito OSF-Curriculum
 
-## Introduction
+## Lesson 1: Introduction
 
 Learning objectives:
 
