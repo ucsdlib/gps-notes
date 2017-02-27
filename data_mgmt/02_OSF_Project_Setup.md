@@ -1,6 +1,8 @@
 # OSF Demo for GPS 2017
 
-##### Lesson adapted from Jolene Esposito OSF-Curriculum
+##### Lesson adapted from:
+Jolene Esposito OSF-Curriculum
+csoderberg OSF-Curriculum
 
 # Lesson 2: Setting up a collaborative space
 
@@ -72,7 +74,7 @@ That’s because all projects on the OSF are set to **private** as a default.
 
 
 ## ***Activity***
-Since we want this to be a **collaborative project**, we need to give the other two members of your teams access to the project.
+Since we want this to be a **collaborative project**, we need to **give the other two members of your teams access to the project.**
 
 * go up to the **contributors tab** and click on that, this is how you can add people as contributors.
 

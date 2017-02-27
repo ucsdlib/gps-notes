@@ -1,6 +1,9 @@
 # OSF Demo for GPS 2017
 
-##### Lesson adapted from Jolene Esposito OSF-Curriculum
+##### Lesson adapted from:
+Jolene Esposito OSF-Curriculum
+csoderberg OSF-Curriculum
+
 
 # Lesson 3: Documenting as you go
 
