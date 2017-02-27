@@ -201,7 +201,7 @@ we’re going to take advantage of the OSFs add-on capabilities.
 
 * If you go to the **settings** page of your project you can see the different add-ons that are available.
 
-### Add-on ***Activity***
+***Activity***
 **Using one of the storage add-ons.**
 
 I’m going to show it with Google Drive, but if you don’t have a Drive account you can use Box or anything on the list.
