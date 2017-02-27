@@ -157,11 +157,21 @@ Once the component is created, we can go into it and see that the inside of all 
 
 
 ### Folder organization using the **TIER Protocol 3.0**
-One good example of folder organization is the **TIER Protocol 3.0** folder structure to the project.  
+One good example of folder organization is adding the **TIER Protocol 3.0** folder structure to the project.  
 
-**[need TIER Info here]**
+The TIER Protocol (Teaching Integrity in Empirical Research) provides guidance to students conducting quantitative research to help ensure that their work is transparent and reproducible.
 
+The Specifications of the TIER Protocol give a complete description of the replication documentation that should be preserved with your study when you have finished the project.
 
+This documentation includes:
+
+* The data used for the project.
+
+* Command files, containing code written for your software, that clean and prepare the data as necessary, and then execute the procedures that generate the results reported in your study.
+
+* Various forms of supporting information to help a user understand and make use of your documentation.
+
+http://www.projecttier.org/tier-protocol/specifications/
 
 # ***Tip***
 You can also nest components within components.
