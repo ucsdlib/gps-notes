@@ -2,6 +2,7 @@
 
 ##### Lesson adapted from:
 Jolene Esposito OSF-Curriculum
+
 csoderberg OSF-Curriculum
 
 # Lesson 2: Setting up a collaborative space
