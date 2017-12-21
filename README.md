@@ -1,4 +1,4 @@
-# GPS-Skills-2017
+# GPS-Skills-2018
 
 A repo for coding notebooks, lecture notes, and assignments for the GPS skills courses.
 
