@@ -1,0 +1,36 @@
+---
+title: "14_tidyr_lesson_solutions"
+output: html_document
+---
+
+
+## Solution to Challenge 1
+
+The original gapminder data.frame is in an intermediate format. It is not
+purely long since it had multiple observation variables
+(`pop`,`lifeExp`,`gdpPercap`).
+
+---
+
+
+## Solution to Challenge 2
+```{r, eval=FALSE}
+gap_long %>% group_by(continent,obs_type) %>%
+   summarize(means=mean(obs_values))
+```
+
+---
+
+
+## Solution to Challenge 3
+```{r, eval=FALSE}
+gap_ludicrously_wide <- gap_long %>%
+    unite(var_names,obs_type,year,country,sep="_") %>%
+    spread(var_names,obs_values)
+```
+
+---
+
+
+
+
