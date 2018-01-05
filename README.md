@@ -1,8 +1,17 @@
-# GPS-Skills-2018
+# GPS-Skills-Lecture-Notes
 
 A repo for coding notebooks, lecture notes, and assignments for the GPS skills courses.
 
-## Lecture notes
+## Lecture notes 2018
+### R
+
+### Python
+
+## Homework
+
+---
+
+## Lecture notes 2017
 ### R
 1. [Lecture1-R Code](2017/intro-r/01-03-intro-r-lesson-gps2017-script.R)
 2. [Lecture 1](2017/intro-r/01-03-intro-r-lesson-notes.html)
