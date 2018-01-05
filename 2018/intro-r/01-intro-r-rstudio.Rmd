@@ -1,0 +1,202 @@
+---
+title: "Intro to R"
+author: "Reid Otsuji adapted from Tim Dennis"
+date: "January 5, 2018"
+output: html_document
+---
+
+**shoot for 1hr**
+
+## SETUP (5 min)
+
+* We're going to learn R for data analysis!
+* real goal not to teach R indepth, but teach basic concepts that you can use in any language
+* we’re going to teach you some of the fundamentals of the R language as well as some best practices for organizing code for scientific projects that will make your life easier
+
+* why R and RStudio?
+	* we have to use something
+	* it's free, well-documented, and runs on most machines
+	* active community, especially among scientists
+	* lots of code already written (and available for reuse!) for many different types of analyses
+	
+## SETUP DATA
+* download data and put in SWC workshop folder: https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv
+
+## INTRO TO RSTUDIO (10 min)
+
+* RStudio is a free, handy interface to work with R (some folks may have used the regular R console already)
+	* R works the same, regardless of whether you're using the R console, R GUI, or RStudio
+	
+##### BASIC LAYOUT: RStudio
+* When you open RStudio, you will be greeted by three panels:
+    * The interactive R console (entire left)
+    * Workspace/History (tabbed in upper right)
+    * files/Plots/Packages/Help (tabbed in lower right)
+    
+* Walk through each panel on screen
+
+##### KEYBOARD SHORTCUTS
+* Shortcuts: 
+`Tools>Keyboard shortcut help`
+
+Alt+- inserts `<-` at cursor
+Control+Shift+m inserts `%>%` at cursor (we'll get into thisfor day 2)
+Control+Enter = Run current line/selection
+ctrl+1 = Move cursor to source
+ctrl+2 = Move cursor to console
+
+## Intro to R (15)
+
+* R as calculator - simple use 
+	* much time spent in console working out code 
+	* console `>` with blinking cursor, much like command line
+	* "read, evaluate, print, loop" REPL - many languages adopt this paradigm (bash, stata, python)
+
+```{r eval=FALSE}
+1 + 100
+1 + 
+```
+
+* if you hit return and R shows a `+` instead of ~>`, waiting for you to comlete command, ESC or control+c will escape
+
+R uses same order of opterations to lowest precedence:
+
+1. Parentheses: `( )`
+2. Exponents: `^` or `**`
+3. Divide: `/`
+4. Multiply: `*`
+5. Add: +
+6. Subtract: -
+
+`3+5*2` v. `(3+5) * 2`
+
+* really small or large numbers get scientific notation
+* `2/10000` #2e-04 shorthand for 10^XX 
+* So 2e-4 is shorthand for 2 * 10^(-4).
+* `5e3` #notice the lack of minus here
+
+## Math functions - many built in functions
+
+```{r}
+sin(1) #trig functions
+log(1) # natural log
+log10(10) #base-10 log
+```
+
+* notice the use of the `#` after, any idea what this does? this doesn't get evaluated b/c it's a comment, use this to document or leave notes for yourself, e.g. #TODO fix code
+* Dont worry about remembering functions, use google 
+* use RSudio's **autocompletion** feature if you can remember beginning of function
+* Typing `?` before function brings up help page in Rstudio
+
+## Comparing things
+
+```{r}
+1 == 1 # equality (note two equals signs, read as "is equal to")
+1 != 2  # inequality (read as "is not equal to")
+1 <  2  # less than
+1 <= 1  # less than or equal to
+1 > 0  # greater than
+1 >= -9 # greater than or equal to
+# Tip: dont' use == to compare numbers unless integers, computers represent decimals with a certain degree of precision
+# check out ?all.equal for comparing things involving doubles
+
+0.1+0.05==0.15
+all.equal(0.1+0.05, 0.15)
+```
+
+* Tip: dont' use == to compare numbers unless integers, computers represent decimals with a certain degree of precision
+* ?all.equal
+* `0.1+0.05==0.15`
+* `all.equal(0.1+0.05, 0.15)`
+
+## Variable & assignments
+
+* Store values in vars using assignment operator <-, like `x <- 1/40`
+* Look in Environment tab in Rstudio
+* our var can be used in place of a number in calculations `log(x)`
+* Variables can be reassigned `x<-100`
+* Assignement values can contain variable being assigned to
+* `x <- x + 1 #notice how RStudio updates its description of x on the top right tab`
+* right hand side can be any valid R expression & is evaluated prior assigment
+* Variable names can contain letters, numbers, underscores and periods. 
+* They cannot start with a number nor contain spaces at all.
+* Can use = for assignment but less common among R users
+
+## Challenge 1
+<https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-1>
+
+## Vectorization
+
+* R is vectorized, meaning that variables and functions can have vectors as values
+
+```{r}
+1:5
+2^(1:5)
+x <- 1:5
+2^x
+```
+
+## Challenge 2 & 3
+<https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-2>
+<https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-3>
+
+## Managing your enviorment
+
+* usefule commands for working with R session 
+* `ls()` shows R ojects
+* `ls` plain will print out code for that function (or any R function)
+* Remove objects use `rm(x)`
+* If you have a lot of objects and want to delete all, use rm(list=ls())
+* In this case we are using ls() function inside another function that takes a list argument, so we are listing all objects and then deleting them with rm()
+* arguments need the =, not <- `rm(list <- ls())` causes errors
+
+<https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-4>
+
+## R packages
+
+* We can write our own packages or obtain package written by others.
+* Over 7,000 packages on CRAN (the comprehensive R archive network)
+* In RStudio console run: 
+
+```{r eval=FALSE}
+installed.packages() #list packages
+install.packages("packagename1", "packagename2") #install one or many packages
+update.pakcages()
+remove.packages("packagename")
+library(packagename) #make package available 
+
+```
+
+<https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-5>
+
+#### Project management with RStudio (10 min)
+
+* most ppl tend to organize projects like so
+* <http://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png>
+
+> ## Creating a project in RStudio
+> We’re going to create a new project in RStudio:
+>
+> 1. Click the “File” menu button, then “New Project”.
+> 2. Click “New Directory”.
+> 3. Click “Empty Project”.
+> 4. Type in the name of the directory to store your project, e.g. “swc_ucla”.
+> 5. If available, select the checkbox for “Create a git repository." (We'll come back to this tomorrow) 
+> 6. Click the “Create Project” button.
+
+<https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/#challenge-1>
+
+## Seeking help (5min)
+
+To be able to access R help files for functions and operators. 
+
+* R & every package provides help files for function. 
+* to search: `?function_name` or `help(function_name)` 
+* special operators:  `?"+"`
+* packages can also have "vignettes" -- tutorials 
+* use vignette() to see all
+* vignette('vignette_name')
+* `??function_name` will do fuzzy search for function help (if you don't know the exact name)
+* don't know where to begin to find a package you need, look at CRAN taask views http://cran.at.r-project.org/web/views/ (cat based )
+
+** hope to be at 2:00pm**
