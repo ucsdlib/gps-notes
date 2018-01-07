@@ -372,24 +372,45 @@ str(coats)
 
 ```{r}
 CATegories <- factor(coats)
+```
+
+```{r}
 class(CATegories)
+```
+```{r}
 str(CATegories)
 ```
 
 * now R has noticed that there are three possible categories in our data
-* but prints out a bunch of numbers
-* R has replaced our human-readable categories with numbered indices 
+* but prints out a bunch of numbers instead
+* R has replaced our human-readable categories with human readable `numbered indices`
+* this is necessary as many statistical calculations utilise such numerical representations for categorical data:
 
 ```{r}
 typeof(coats)
+```
+
+```{r}
 typeof(CATegories)
 ```
 
 ## Challenge 2
 <http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-2>
 
+```{r}
+catsstring <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
+
+str(catsstring$coat)
+```
+
+```{r}
+catsstring <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
+str(catsstring$coat)
+```
+
+
 * in modelling functions, it's important to know what the baseline levels are
-* this is assumed to be the first factor, but by default factors are labelled in aphabetical order
+* this is assumed to be the first factor, but by default `factors are labelled in aphabetical`
 * you can change this by specifying levels:
 
 ```{r}
@@ -404,7 +425,7 @@ str(factor_ordering_example)
 ## Lists
 
 * another data structure you'll want to learn is a `list`
-* simpler in some ways than other types b/c you can put anything in it
+* a list is simpler in some ways than other types because you can put anything in it
 
 ```{r}
 list_example <- list(1, "a", TRUE, 1+4i)
@@ -415,40 +436,53 @@ another_list <- list(title = "Research Bazaar", numbers = 1:10, data = TRUE )
 another_list
 ```
 
-* we can now understand something surprising in our `data.frame` what happens if we: 
+* we can now understand something surprising in our cats `data.frame` what happens if we:
 
 ```{r}
 typeof(cats)
 ```
 
-* we see that `data.frames` look like lists under the hood 
-* data.frame is really a list of vectors and factors 
+* we see that `data.frames` look like `lists` under the hood 
+* this is because a data.frame is really a list of vectors and factors 
 * in order to hold those columns that are a mix of vectors and factors, the data.frame needs something a bit more flexible than a vector to put all those columns together into a table
-* data.frame is a special ist in which all vectors must have same length
+* `data.frame` is a special ist in which all vectors must have same length
 
 * in our cats exampel we have an integer, a double and logical variable
 
 ```{r}
 cats$coat
+```
+```{r}
 cats[,1]
+```
+```{r}
 typeof(cats[,1])
+```
+```{r}
 str(cats[,1])
 ```
 
-* each row is an observation of different variables, itself a `data.frame` and thus can be composed of element of diff. types
+* each row is an `observation` of different variables, itself a `data.frame` and thus can be composed of element of different types
 
 ```{r}
 cats[1,]
+```
+```{r}
 typeof(cats[1,])
+```
+```{r}
 str(cats[1,])
 ```
+
 
 ## Challenge 3
 <http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-3>
 
+
+
 ## Matrices 
 
-* Last but not least - matrix
+* Last but not least is the matrix
 * we can declare a matrix of zeros:
 
 ```{r}
@@ -459,9 +493,17 @@ matrix_example
 
 ```{r}
 class(matrix_example)
+```
+```{r}
 typeof(matrix_example)
+```
+```{r}
 str(matrix_example)
+```
+```{r}
 dim(matrix_example)
+```
+```{r}
 nrow(matrix_example)
 ```
 
@@ -470,7 +512,24 @@ nrow(matrix_example)
 
 <http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-4>
 
+```{r}
+matrix_example <- matrix(0, ncol=6, nrow=3)
+length(matrix_example)
+```
+
+
+
+
 ## Challenge 5
 
 <http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-5>
+
+```{r}
+x <- matrix(1:50, ncol=5, nrow=10)
+```
+
+
+```{r}
+x <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
+```
 

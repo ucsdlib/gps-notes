@@ -437,15 +437,16 @@ coats</code></pre>
 <ul>
 <li>we can turn a vector into a factor like so</li>
 </ul>
-<pre class="r"><code>CATegories &lt;- factor(coats)
-class(CATegories)</code></pre>
+<pre class="r"><code>CATegories &lt;- factor(coats)</code></pre>
+<pre class="r"><code>class(CATegories)</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <pre class="r"><code>str(CATegories)</code></pre>
 <pre><code>##  Factor w/ 3 levels &quot;black&quot;,&quot;tabby&quot;,..: 2 3 3 1 2</code></pre>
 <ul>
 <li>now R has noticed that there are three possible categories in our data</li>
-<li>but prints out a bunch of numbers</li>
-<li>R has replaced our human-readable categories with numbered indices</li>
+<li>but prints out a bunch of numbers instead</li>
+<li>R has replaced our human-readable categories with human readable <code>numbered indices</code></li>
+<li>this is necessary as many statistical calculations utilise such numerical representations for categorical data:</li>
 </ul>
 <pre class="r"><code>typeof(coats)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
@@ -455,9 +456,16 @@ class(CATegories)</code></pre>
 <div id="challenge-2" class="section level2">
 <h2>Challenge 2</h2>
 <p><a href="http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-2" class="uri">http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-2</a></p>
+<pre class="r"><code>catsstring &lt;- read.csv(file=&quot;data/feline-data.csv&quot;, stringsAsFactors=FALSE)
+
+str(catsstring$coat)</code></pre>
+<pre><code>##  chr [1:3] &quot;calico&quot; &quot;black&quot; &quot;tabby&quot;</code></pre>
+<pre class="r"><code>catsstring &lt;- read.csv(file=&quot;data/feline-data.csv&quot;, colClasses=c(NA, NA, &quot;character&quot;))
+str(catsstring$coat)</code></pre>
+<pre><code>##  Factor w/ 3 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3</code></pre>
 <ul>
 <li>in modelling functions, it’s important to know what the baseline levels are</li>
-<li>this is assumed to be the first factor, but by default factors are labelled in aphabetical order</li>
+<li>this is assumed to be the first factor, but by default <code>factors are labelled in aphabetical</code></li>
 <li>you can change this by specifying levels:</li>
 </ul>
 <pre class="r"><code>mydata &lt;- c(&quot;case&quot;, &quot;control&quot;, &quot;control&quot;, &quot;case&quot;)
@@ -473,7 +481,7 @@ str(factor_ordering_example)</code></pre>
 <h2>Lists</h2>
 <ul>
 <li>another data structure you’ll want to learn is a <code>list</code></li>
-<li>simpler in some ways than other types b/c you can put anything in it</li>
+<li>a list is simpler in some ways than other types because you can put anything in it</li>
 </ul>
 <pre class="r"><code>list_example &lt;- list(1, &quot;a&quot;, TRUE, 1+4i)
 list_example</code></pre>
@@ -499,15 +507,15 @@ another_list</code></pre>
 ## $data
 ## [1] TRUE</code></pre>
 <ul>
-<li>we can now understand something surprising in our <code>data.frame</code> what happens if we:</li>
+<li>we can now understand something surprising in our cats <code>data.frame</code> what happens if we:</li>
 </ul>
 <pre class="r"><code>typeof(cats)</code></pre>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <ul>
-<li>we see that <code>data.frames</code> look like lists under the hood</li>
-<li>data.frame is really a list of vectors and factors</li>
+<li>we see that <code>data.frames</code> look like <code>lists</code> under the hood</li>
+<li>this is because a data.frame is really a list of vectors and factors</li>
 <li>in order to hold those columns that are a mix of vectors and factors, the data.frame needs something a bit more flexible than a vector to put all those columns together into a table</li>
-<li><p>data.frame is a special ist in which all vectors must have same length</p></li>
+<li><p><code>data.frame</code> is a special ist in which all vectors must have same length</p></li>
 <li><p>in our cats exampel we have an integer, a double and logical variable</p></li>
 </ul>
 <pre class="r"><code>cats$coat</code></pre>
@@ -521,7 +529,7 @@ another_list</code></pre>
 <pre class="r"><code>str(cats[,1])</code></pre>
 <pre><code>##  Factor w/ 3 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3</code></pre>
 <ul>
-<li>each row is an observation of different variables, itself a <code>data.frame</code> and thus can be composed of element of diff. types</li>
+<li>each row is an <code>observation</code> of different variables, itself a <code>data.frame</code> and thus can be composed of element of different types</li>
 </ul>
 <pre class="r"><code>cats[1,]</code></pre>
 <pre><code>##     coat weight likes_string
@@ -541,7 +549,7 @@ another_list</code></pre>
 <div id="matrices" class="section level2">
 <h2>Matrices</h2>
 <ul>
-<li>Last but not least - matrix</li>
+<li>Last but not least is the matrix</li>
 <li>we can declare a matrix of zeros:</li>
 </ul>
 <pre class="r"><code>matrix_example &lt;- matrix(0, ncol=6, nrow=3)
@@ -567,10 +575,15 @@ matrix_example</code></pre>
 <div id="challege-4" class="section level2">
 <h2>Challege 4</h2>
 <p><a href="http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-4" class="uri">http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-4</a></p>
+<pre class="r"><code>matrix_example &lt;- matrix(0, ncol=6, nrow=3)
+length(matrix_example)</code></pre>
+<pre><code>## [1] 18</code></pre>
 </div>
 <div id="challenge-5" class="section level2">
 <h2>Challenge 5</h2>
 <p><a href="http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-5" class="uri">http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-5</a></p>
+<pre class="r"><code>x &lt;- matrix(1:50, ncol=5, nrow=10)</code></pre>
+<pre class="r"><code>x &lt;- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row</code></pre>
 </div>
 
 
