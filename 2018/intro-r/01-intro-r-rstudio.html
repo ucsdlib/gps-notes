@@ -165,8 +165,8 @@ $(document).ready(function () {
 <li>Walk through each panel on screen</li>
 </ul>
 </div>
-<div id="keyboard-shortcuts" class="section level5">
-<h5>KEYBOARD SHORTCUTS</h5>
+<div id="keyboard-shortcuts---running-segments-of-your-code" class="section level5">
+<h5>KEYBOARD SHORTCUTS - Running segments of your code</h5>
 <ul>
 <li>Shortcuts: <code>Tools&gt;Keyboard shortcut help</code></li>
 </ul>
@@ -175,20 +175,21 @@ $(document).ready(function () {
 </div>
 <div id="intro-to-r-15" class="section level2">
 <h2>Intro to R (15)</h2>
-<ul>
-<li>R as calculator - simple use
-<ul>
-<li>much time spent in console working out code</li>
-<li>console <code>&gt;</code> with blinking cursor, much like command line</li>
-<li>“read, evaluate, print, loop” REPL - many languages adopt this paradigm (bash, stata, python)</li>
-</ul></li>
-</ul>
-<pre class="r"><code>1 + 100
-1 + </code></pre>
+<p>Much of your time in R will be spent in the R interactive console.</p>
+<p>This is where you will run all of your code, and can be a useful environment to try out ideas before adding them to an R script file.</p>
+</div>
+<div id="r-as-calculator-in-the-script-window---simple-use" class="section level2">
+<h2>R as calculator in the script window - simple use</h2>
+<pre><code>* much time spent in console working out code 
+* console `&gt;` with blinking cursor, much like command line
+* &quot;read, evaluate, print, loop&quot; REPL - many languages adopt this paradigm (bash, stata, python)
+* R tries to execute them, and then returns a result</code></pre>
+<pre class="r"><code>1 + 100</code></pre>
+<pre><code>## [1] 101</code></pre>
 <ul>
 <li>if you hit return and R shows a <code>+</code> instead of ~&gt;`, waiting for you to comlete command, ESC or control+c will escape</li>
 </ul>
-<p>R uses same order of opterations to lowest precedence:</p>
+<p>Using R as a calculator: R uses same order of opterations to lowest precedence:</p>
 <ol style="list-style-type: decimal">
 <li>Parentheses: <code>( )</code></li>
 <li>Exponents: <code>^</code> or <code>**</code></li>
@@ -198,30 +199,64 @@ $(document).ready(function () {
 <li>Subtract: -</li>
 </ol>
 <p><code>3+5*2</code> v. <code>(3+5) * 2</code></p>
+<pre class="r"><code>3+5*2</code></pre>
+<pre><code>## [1] 13</code></pre>
+<p>vs. Use parentheses to group operations in order to force the order of evaluation if it differs from the default, or to make clear what you intend.</p>
+<pre class="r"><code>(3+5) * 2</code></pre>
+<pre><code>## [1] 16</code></pre>
+<pre class="r"><code>(3 + (5 * (2 ^ 2))) # hard to read</code></pre>
+<pre><code>## [1] 23</code></pre>
+<pre class="r"><code>3 + 5 * 2 ^ 2       # clear, if you remember the rules</code></pre>
+<pre><code>## [1] 23</code></pre>
+<pre class="r"><code>3 + 5 * (2 ^ 2)     # if you forget some rules, this might help</code></pre>
+<pre><code>## [1] 23</code></pre>
 <ul>
 <li>really small or large numbers get scientific notation</li>
 <li><code>2/10000</code> #2e-04 shorthand for 10^XX</li>
-<li>So 2e-4 is shorthand for 2 * 10^(-4).</li>
+</ul>
+<pre class="r"><code>2/10000</code></pre>
+<pre><code>## [1] 2e-04</code></pre>
+<ul>
+<li><p>So 2e-4 is shorthand for 2 * 10^(-4).</p></li>
+<li><p>You can write numbers in scientific notation too:</p></li>
+</ul>
+<pre class="r"><code>5e3 # Note the lack of minus here</code></pre>
+<pre><code>## [1] 5000</code></pre>
+<ul>
 <li><code>5e3</code> #notice the lack of minus here</li>
 </ul>
 </div>
 <div id="math-functions---many-built-in-functions" class="section level2">
 <h2>Math functions - many built in functions</h2>
+<ul>
+<li>R has many built in mathematical functions.</li>
+<li><p>To call a function, we simply type its name, followed by open and closing parentheses.</p></li>
+<li><p>Anything we type inside the parentheses is called the function’s arguments</p></li>
+</ul>
 <pre class="r"><code>sin(1) #trig functions</code></pre>
 <pre><code>## [1] 0.841471</code></pre>
 <pre class="r"><code>log(1) # natural log</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>log10(10) #base-10 log</code></pre>
 <pre><code>## [1] 1</code></pre>
+<pre class="r"><code>exp(0.5) # e^(1/2)</code></pre>
+<pre><code>## [1] 1.648721</code></pre>
+<div id="commenting" class="section level5">
+<h5>Commenting</h5>
 <ul>
-<li>notice the use of the <code>#</code> after, any idea what this does? this doesn’t get evaluated b/c it’s a comment, use this to document or leave notes for yourself, e.g. #TODO fix code</li>
+<li><p>notice the use of the <code>#</code> after, any idea what this does? this doesn’t get evaluated b/c it’s a comment, use this to document or leave notes for yourself, e.g. #TODO fix code</p></li>
 <li>Dont worry about remembering functions, use google</li>
-<li>use RSudio’s <strong>autocompletion</strong> feature if you can remember beginning of function</li>
-<li>Typing <code>?</code> before function brings up help page in Rstudio</li>
+<li><p>use RSudio’s <strong>autocompletion</strong> feature if you can remember beginning of function</p></li>
+<li>Typing <code>?</code> before a function brings up help page in Rstudio help panel</li>
+<li><p>we’ll look at help later on</p></li>
 </ul>
+</div>
 </div>
 <div id="comparing-things" class="section level2">
 <h2>Comparing things</h2>
+<ul>
+<li>we can do comparisons in R</li>
+</ul>
 <pre class="r"><code>1 == 1 # equality (note two equals signs, read as &quot;is equal to&quot;)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>1 != 2  # inequality (read as &quot;is not equal to&quot;)</code></pre>
@@ -251,20 +286,48 @@ $(document).ready(function () {
 <div id="variable-assignments" class="section level2">
 <h2>Variable &amp; assignments</h2>
 <ul>
-<li>Store values in vars using assignment operator &lt;-, like <code>x &lt;- 1/40</code></li>
-<li>Look in Environment tab in Rstudio</li>
-<li>our var can be used in place of a number in calculations <code>log(x)</code></li>
+<li>Store values in vars using assignment operator <code>&lt;-</code>, like <code>x &lt;- 1/40</code></li>
+</ul>
+<pre class="r"><code>x &lt;- 1/40</code></pre>
+<ul>
+<li><p>Notice that assignment does not print a value.</p></li>
+<li><p>Look in Environment tab in Rstudio</p></li>
+</ul>
+<pre class="r"><code>x</code></pre>
+<pre><code>## [1] 0.025</code></pre>
+<ul>
+<li><p>decimal approximation of this fraction called a floating point number.</p></li>
+<li><p>our var can be used in place of a number in calculations <code>log(x)</code></p></li>
+</ul>
+<pre class="r"><code>log(x)</code></pre>
+<pre><code>## [1] -3.688879</code></pre>
+<ul>
 <li>Variables can be reassigned <code>x&lt;-100</code></li>
-<li>Assignement values can contain variable being assigned to</li>
-<li><code>x &lt;- x + 1 #notice how RStudio updates its description of x on the top right tab</code></li>
-<li>right hand side can be any valid R expression &amp; is evaluated prior assigment</li>
+</ul>
+<pre class="r"><code>x &lt;- 100</code></pre>
+<pre class="r"><code>x</code></pre>
+<pre><code>## [1] 100</code></pre>
+<p><code>x</code> used to contain the value 0.025 and and now it has the value 100.</p>
+<ul>
+<li>Assignement values can contain variable being assigned to:</li>
+</ul>
+<pre class="r"><code>x &lt;- x + 1 #notice how RStudio updates its description of x on the top right tab
+y &lt;- x * 2</code></pre>
+<pre class="r"><code>x</code></pre>
+<pre><code>## [1] 101</code></pre>
+<pre class="r"><code>y</code></pre>
+<pre><code>## [1] 202</code></pre>
+<ul>
+<li><p><code>x &lt;- x + 1 #notice how RStudio updates its description of x on the top right tab</code></p></li>
+<li><p>right hand side of assignment can be any valid R expression &amp; is evaluated prior assigment</p></li>
 <li>Variable names can contain letters, numbers, underscores and periods.</li>
 <li>They cannot start with a number nor contain spaces at all.</li>
-<li>Can use = for assignment but less common among R users</li>
+<li><p>Can use = for assignment but less common among R users</p></li>
+<li><p>be consisten with operator usage, <code>&lt;-</code> is more common and recommended</p></li>
 </ul>
 </div>
-<div id="challenge-1" class="section level2">
-<h2>Challenge 1</h2>
+<div id="challenge-1-5-mins" class="section level2">
+<h2>Challenge 1 (5 mins)</h2>
 <p><a href="https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-1" class="uri">https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-1</a></p>
 </div>
 <div id="vectorization" class="section level2">
@@ -280,41 +343,104 @@ $(document).ready(function () {
 2^x</code></pre>
 <pre><code>## [1]  2  4  8 16 32</code></pre>
 </div>
-<div id="challenge-2-3" class="section level2">
-<h2>Challenge 2 &amp; 3</h2>
+<div id="challenge-2-3-5-mins" class="section level2">
+<h2>Challenge 2 &amp; 3 (5 mins)</h2>
 <p><a href="https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-2" class="uri">https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-2</a> <a href="https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-3" class="uri">https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-3</a></p>
 </div>
 <div id="managing-your-enviorment" class="section level2">
 <h2>Managing your enviorment</h2>
 <ul>
-<li>usefule commands for working with R session</li>
-<li><code>ls()</code> shows R ojects</li>
-<li><code>ls</code> plain will print out code for that function (or any R function)</li>
-<li>Remove objects use <code>rm(x)</code></li>
-<li>If you have a lot of objects and want to delete all, use rm(list=ls())</li>
-<li>In this case we are using ls() function inside another function that takes a list argument, so we are listing all objects and then deleting them with rm()</li>
-<li>arguments need the =, not &lt;- <code>rm(list &lt;- ls())</code> causes errors</li>
+<li>There are useful commands to use to interact with the R session</li>
+<li><code>ls()</code> lists all varialbles and fucntions stored in the R golbal environment</li>
 </ul>
+<pre class="r"><code>ls()</code></pre>
+<pre><code>## [1] &quot;x&quot; &quot;y&quot;</code></pre>
+<ul>
+<li>typing <code>ls</code> along will print out code for that function (or any R function)</li>
+</ul>
+<pre class="r"><code>ls</code></pre>
+<pre><code>## function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+##     pattern, sorted = TRUE) 
+## {
+##     if (!missing(name)) {
+##         pos &lt;- tryCatch(name, error = function(e) e)
+##         if (inherits(pos, &quot;error&quot;)) {
+##             name &lt;- substitute(name)
+##             if (!is.character(name)) 
+##                 name &lt;- deparse(name)
+##             warning(gettextf(&quot;%s converted to character string&quot;, 
+##                 sQuote(name)), domain = NA)
+##             pos &lt;- name
+##         }
+##     }
+##     all.names &lt;- .Internal(ls(envir, all.names, sorted))
+##     if (!missing(pattern)) {
+##         if ((ll &lt;- length(grep(&quot;[&quot;, pattern, fixed = TRUE))) &amp;&amp; 
+##             ll != length(grep(&quot;]&quot;, pattern, fixed = TRUE))) {
+##             if (pattern == &quot;[&quot;) {
+##                 pattern &lt;- &quot;\\[&quot;
+##                 warning(&quot;replaced regular expression pattern '[' by  '\\\\['&quot;)
+##             }
+##             else if (length(grep(&quot;[^\\\\]\\[&lt;-&quot;, pattern))) {
+##                 pattern &lt;- sub(&quot;\\[&lt;-&quot;, &quot;\\\\\\[&lt;-&quot;, pattern)
+##                 warning(&quot;replaced '[&lt;-' by '\\\\[&lt;-' in regular expression pattern&quot;)
+##             }
+##         }
+##         grep(pattern, all.names, value = TRUE)
+##     }
+##     else all.names
+## }
+## &lt;bytecode: 0x7fbea5f1bf48&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<ul>
+<li><p>when using <code>ls</code> parenthasis are importnat to tell R to call the function <code>ls</code></p></li>
+<li><p>Remove objects use <code>rm(x)</code></p></li>
+</ul>
+<pre class="r"><code>rm(x)</code></pre>
+<ul>
+<li><p>You can use <code>rm</code> to delete objects you no longer need</p></li>
+<li><p>If you have a lot of objects and want to delete all, use <code>rm(list=ls())</code></p></li>
+</ul>
+<pre class="r"><code>rm(list=ls())</code></pre>
+<ul>
+<li><p>In this case we are using <code>ls()</code> function inside another function that takes a list argument, so we are listing all objects and then deleting them with <code>rm()</code></p></li>
+<li><p>arguments need the =, not &lt;- <code>rm(list &lt;- ls())</code> causes errors</p></li>
+</ul>
+<p>run once: <code>rm(list &lt;- ls())</code></p>
+</div>
+<div id="challenge-4" class="section level2">
+<h2>Challenge 4</h2>
 <p><a href="https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-4" class="uri">https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-4</a></p>
 </div>
-<div id="r-packages" class="section level2">
-<h2>R packages</h2>
+<div id="installing-and-using-r-packages" class="section level2">
+<h2>Installing and Using R packages</h2>
 <ul>
 <li>We can write our own packages or obtain package written by others.</li>
 <li>Over 7,000 packages on CRAN (the comprehensive R archive network)</li>
 <li>In RStudio console run:</li>
 </ul>
 <pre class="r"><code>installed.packages() #list packages
+
 install.packages(&quot;packagename1&quot;, &quot;packagename2&quot;) #install one or many packages
-update.pakcages()
+
+update.pakcages() updating packages
+
 remove.packages(&quot;packagename&quot;)
+
 library(packagename) #make package available </code></pre>
+</div>
+<div id="challenge-5" class="section level2">
+<h2>Challenge 5</h2>
 <p><a href="https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-5" class="uri">https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/challenge-5</a></p>
 <div id="project-management-with-rstudio-10-min" class="section level4">
 <h4>Project management with RStudio (10 min)</h4>
+<p>The scientific process is naturally incremental, and many projects start life as random notes, some code, then a manuscript, and eventually everything is a bit mixed together.</p>
+<p>A good project layout will ultimately make your life easier:</p>
+<p>It will help ensure the integrity of your data; It makes it simpler to share your code with someone else (a lab-mate, collaborator, or supervisor); It allows you to easily upload your code with your manuscript submission; It makes it easier to pick the project back up after a break.</p>
 <ul>
+<li><p>we’ll look a litle more at Data Management near the end of quarter.</p></li>
 <li>most ppl tend to organize projects like so</li>
-<li><a href="http://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png" class="uri">http://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png</a></li>
+<li><p><a href="http://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png" class="uri">http://swcarpentry.github.io/r-novice-gapminder/fig/bad_layout.png</a></p></li>
 </ul>
 <blockquote>
 <h2 id="creating-a-project-in-rstudio">Creating a project in RStudio</h2>
@@ -328,8 +454,44 @@ library(packagename) #make package available </code></pre>
 <li>Click the “Create Project” button.</li>
 </ol>
 </blockquote>
-<p><a href="https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/#challenge-1" class="uri">https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/#challenge-1</a></p>
 </div>
+<div id="best-practices-for-project-organization" class="section level4">
+<h4>Best practices for project organization</h4>
+<p>Although there is no “best” way to lay out a project, there are some general principles to adhere to that will make project management easier:</p>
+<ul>
+<li>Treat data as read only This is probably the most important goal of setting up a project.</li>
+</ul>
+<p>Data is typically time consuming and/or expensive to collect.</p>
+<p>Working with them interactively (e.g., in Excel) where they can be modified means you are never sure of where the data came from, or how it has been modified since collection.</p>
+<p>It is therefore a good idea to treat your data as “read-only”.</p>
+<ul>
+<li>Data Cleaning In many cases your data will be “dirty”: it will need significant preprocessing to get into a format R (or any other programming language) will find useful.</li>
+</ul>
+<p>This task is sometimes called “data munging”.</p>
+<p>it useful to store these scripts in a separate folder, and create a second “read-only” data folder to hold the “cleaned” data sets.</p>
+<ul>
+<li>Treat generated output as disposable Anything generated by your scripts should be treated as disposable: it should all be able to be regenerated from your scripts.</li>
+</ul>
+<p>There are lots of different ways to manage this output. its useful to have an output folder with different sub-directories for each separate analysis.</p>
+<p>This makes it easier later, as many of my analyses are exploratory and don’t end up being used in the final project, and some of the analyses get shared between projects.</p>
+</div>
+<div id="good-enough-practices-for-scientific-computing" class="section level4">
+<h4>Good enough practices for scientific computing</h4>
+<p><a href="https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf" class="uri">https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf</a></p>
+<p>gives the following recommendations for project organization:</p>
+<ul>
+<li>Put each project in its own directory, which is named after the project.</li>
+<li>Put text documents associated with the project in the <code>doc</code> directory.</li>
+<li>Put raw data and metadata in the <code>data</code> directory, and files generated during cleanup and analysis in a <code>results</code> directory.</li>
+<li>Put source for the project’s scripts and programs in the <code>src</code> directory, and programs brought in from elsewhere or compiled locally in the <code>bin</code> directory.</li>
+<li><p>Name all files to reflect their content or function.</p></li>
+<li><p>mention <code>TIER Protocol</code> - covered later on in the Data Management section</p></li>
+</ul>
+</div>
+</div>
+<div id="challenge-1" class="section level2">
+<h2>Challenge 1</h2>
+<p><a href="https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/#challenge-1" class="uri">https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/#challenge-1</a></p>
 </div>
 <div id="seeking-help-5min" class="section level2">
 <h2>Seeking help (5min)</h2>
@@ -342,7 +504,7 @@ library(packagename) #make package available </code></pre>
 <li>use vignette() to see all</li>
 <li>vignette(‘vignette_name’)</li>
 <li><code>??function_name</code> will do fuzzy search for function help (if you don’t know the exact name)</li>
-<li>don’t know where to begin to find a package you need, look at CRAN taask views <a href="http://cran.at.r-project.org/web/views/" class="uri">http://cran.at.r-project.org/web/views/</a> (cat based )</li>
+<li>don’t know where to begin to find a package you need, look at CRAN task views <a href="http://cran.at.r-project.org/web/views/" class="uri">http://cran.at.r-project.org/web/views/</a> (cat based )</li>
 </ul>
 <p>** hope to be at 2:00pm**</p>
 </div>
