@@ -4,6 +4,15 @@ author: "Reid Otsuji adapted from Tim Dennis"
 date: "January 5, 2018"
 output: html_document
 ---
+## Course intro (5- 10 mins)
+* Introductions: instructor and TA - Library services
+* Using TritonEd resources
+* Syllabus overview
+* assignements posted weds or thurs - sure before next course
+* quizes on Tritoned
+* format will be the same for all 3 sections
+
+
 
 **shoot for 1hr**
 
@@ -20,7 +29,7 @@ output: html_document
 	* lots of code already written (and available for reuse!) for many different types of analyses
 	
 ## SETUP DATA
-* download data and put in SWC workshop folder: https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv
+* download data and put in gps-r workshop folder on your desktop: https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv
 
 ## INTRO TO RSTUDIO (10 min)
 
