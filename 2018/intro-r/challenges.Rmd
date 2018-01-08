@@ -15,8 +15,11 @@ knitr::opts_chunk$set(echo = TRUE)
 <https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-1>
 
 
+
 ### Challenge 2 & 3 (5 mins)
 <https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-2>
+### What will be the value of each variable after each statement in the following program?
+
 
 <https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-3>
 
