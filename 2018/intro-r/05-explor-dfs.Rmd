@@ -184,7 +184,19 @@ str(human.age)
 
 * basics of manipulating `data.frames` with our cat data
 * let's work on a more realistic data set
-* we're going to read in the gapminder dataset 
+* we're going to read in the gapminder dataset
+*make sure everyone has the data saved to desktop and in a RStudio working directory*
+
+#### Gapmidner data info:
+*  For each of 142 countries, the package provides values for life expectancy, GDP per capita,
+and population, every five years, from 1952 to 2007
+* The main data frame gapminder has 1704 rows and 6 variables:
+* `country` - factor with 142 levels
+* `continent` - factor with 5 levels
+* `year` - ranges from 1952 to 2007 in increments of 5 years
+* `lifeExp` - life expectancy at birth, in years
+* `pop` - population
+* `gdpPercap` - GDP per capita (US$, inflation-adjusted)
 
 ```{r}
 gapminder <- read.csv("data/gapminder-FiveYearData.csv")
@@ -319,5 +331,10 @@ tail(gapminder)
 ```{r}
 tail(gapminder, n = 15)
 ```
+
+## Cheat Sheets
+* mention cheatsheets that are avialble
+https://www.rstudio.com/resources/cheatsheets/
+
 
 

@@ -31,6 +31,8 @@ output: html_document
 ## SETUP DATA
 * download data and put in gps-r workshop folder on your desktop: https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv
 
+
+
 ## INTRO TO RSTUDIO (10 min)
 
 * RStudio is a free, handy interface to work with R (some folks may have used the regular R console already)
