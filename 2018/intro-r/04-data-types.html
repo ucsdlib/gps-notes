@@ -197,20 +197,20 @@ cats$weight + 2</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
 <p>There are 5 main data types:</p>
 <ul>
-<li>double</li>
-<li>integer</li>
-<li>complex</li>
-<li>logical</li>
-<li>character</li>
+<li><code>double</code> - double precision float number (used for math)</li>
+<li><code>integer</code> - used for IDs or Values</li>
+<li><code>complex</code> -</li>
+<li><code>logical</code></li>
+<li><code>character</code></li>
 </ul>
 <pre class="r"><code>typeof(3.14)</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>typeof(1L) # the L suffix forces the number to be an integer, since by default R uses float numbers</code></pre>
+<pre class="r"><code>typeof(1L) # the L suffix forces the number to be an integer, since by default R uses float numbers, R stores as integer</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <p><strong>note</strong> the L suffix for indicating an number is an iteger</p>
-<pre class="r"><code>typeof(1+1i)</code></pre>
+<pre class="r"><code>typeof(1+1i) #complex numbers with real and imaginary parts</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
-<pre class="r"><code>typeof(TRUE)</code></pre>
+<pre class="r"><code>typeof(TRUE) # TRUE or FALSE</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>typeof('banana')</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>

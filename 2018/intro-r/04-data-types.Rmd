@@ -82,25 +82,25 @@ typeof(cats$weight)
 
 There are 5 main data types: 
 
-* double
-* integer
-* complex
-* logical 
-* character
+* `double`  - double precision float number (used for math)
+* `integer` - used for IDs or Values
+* `complex` - 
+* `logical` 
+* `character`
 
 ```{r}
 typeof(3.14)
 ```
 ```{r}
-typeof(1L) # the L suffix forces the number to be an integer, since by default R uses float numbers
+typeof(1L) # the L suffix forces the number to be an integer, since by default R uses float numbers, R stores as integer
 ```
 **note** the L suffix for indicating an number is an iteger
 
 ```{r}
-typeof(1+1i)
+typeof(1+1i) #complex numbers with real and imaginary parts
 ```
 ```{r}
-typeof(TRUE)
+typeof(TRUE) # TRUE or FALSE
 ```
 
 ```{r}
