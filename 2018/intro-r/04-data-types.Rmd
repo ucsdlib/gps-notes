@@ -509,7 +509,6 @@ nrow(matrix_example)
 
 
 ## Challege 4
-
 <http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-4>
 
 ```{r}
@@ -521,7 +520,6 @@ length(matrix_example)
 
 
 ## Challenge 5
-
 <http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1#challenge-5>
 
 ```{r}
