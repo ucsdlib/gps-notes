@@ -34,7 +34,7 @@ tabby,3.2,1
 ##### Load csv in R
 * Read the file in: 
 
-```{r read}
+```{r}
 cats <- read.csv(file = "data/feline-data.csv")
 cats
 ```
@@ -104,7 +104,7 @@ typeof(TRUE)
 ```
 
 ```{r}
-typeof('banna')
+typeof('banana')
 ```
 
 * no matter how complicated our analysis is all data in R is interepeted as of one of these basic types
