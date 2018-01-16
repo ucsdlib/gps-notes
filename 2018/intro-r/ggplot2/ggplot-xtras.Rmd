@@ -1,0 +1,351 @@
+---
+title: "GGPLOT- extras"
+output: 
+  html_document: 
+    toc: yes
+---
+
+First part of this notebook based on Karthik Ram's [GGPLOT2 Lecture](https://github.com/karthik/ggplot-lecture) ([CC-By 2.0](https://creativecommons.org/licenses/by/2.0/))
+
+```{r, include=FALSE}
+source("tools/chunk-options.R")
+opts_chunk$set(fig.path = "fig/08-plot-ggplot2xtras-")
+# Silently load in the data so the rest of the lesson works
+#gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+```
+This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.
+
+
+```{r head_iris}
+library(ggplot2)
+head(iris)
+```
+
+WE can use the `data()` function to show the available built-in data sets in R. 
+
+
+```{r show-datasets}
+data()
+```
+
+```{r}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point()
+```
+
+
+**Basic structure**
+
+```{r}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+myplot <- ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width))
+myplot + geom_point()
+```
+
+* Specify the **data and variables** inside the `ggplot` function.
+* Anything else that goes in here becomes a global setting.
+* Then add layers of geometric objects, statistical models, and panels.
+
+**Increase size of points**
+
+```{r size-points}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point(size = 3)
+```
+
+**Make it colorful**
+```{r icolor}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(size = 3)
+```
+
+**Differentiate points by shape**
+
+```{r iris-shape}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(aes(shape = Species), size = 3)
+```
+
+### Exercise 1
+
+```{r ex-1}
+# Make a small sample of the diamonds dataset
+d2 <- diamonds[sample(1:dim(diamonds)[1], 1000), ]
+```
+
+Then generate this plot below. (open 09-plot-ggplot2-ex-1-1.png)
+
+```{r answer-ex-1}
+ggplot(d2, aes(carat, price, color = color)) + geom_point() + theme_gray()
+
+```
+
+## Line plots
+
+**Download data**
+
+```{r download-cli-data, eval=FALSE}
+download.file('https://raw.github.com/karthikram/ggplot-lecture/master/climate.csv', 'data/climate.csv')
+#climate <- read.csv(text=RCurl::getURL(https://raw.github.com/karthikram/ggplot-lecture/master/climate.csv))
+```
+
+* In the climate data set, `Anomaly10y` is a 10-year running average of the deviation (in Celsius) from the average 1950–1980 temperature, and `Unc10y` is the 95% confidence interval. We’ll set ymax and ymin to Anomaly10y plus or minus Unc10y (Figure 4-25):
+
+
+```{r line-plots}
+climate <- read.csv("data/climate.csv", header = T)
+ggplot(climate, aes(Year, Anomaly10y)) +
+  geom_line()
+```
+
+**We can also plot confidence regions**
+
+* In the climate data set, `Anomaly10y` is a 10-year running average of the deviation (in Celsius) from the average 1950–1980 temperature, and `Unc10y` is the 95% confidence interval. We’ll set ymax and ymin to Anomaly10y plus or minus Unc10y (Figure 4-25):
+
+```{r}
+ggplot(climate, aes(Year, Anomaly10y)) +
+  geom_ribbon(aes(ymin = Anomaly10y - Unc10y, ymax = Anomaly10y + Unc10y),
+              fill = "blue", alpha = .1) +
+  geom_line(color = "steelblue")
+```
+
+### Exercise 2
+
+Modify the previous plot and change it such that there are three lines instead of one with a confidence band.
+
+```{r answer-ex2}
+cplot <- ggplot(climate, aes(Year, Anomaly10y))
+cplot <- cplot + geom_line(size = 0.7, color = "black")
+cplot <- cplot + geom_line(aes(Year, Anomaly10y + Unc10y), linetype = "dashed", size = 0.7, color = "red")
+cplot <- cplot + geom_line(aes(Year, Anomaly10y - Unc10y), linetype = "dashed", size = 0.7, color = "red")
+cplot + theme_gray()
+#theme_classic
+#theme_bw()
+#theme_minimal()
+```
+## Box plots
+
+See ?geom boxplot for list of options
+
+```{r load-mass}
+library(MASS)
+head(birthwt)
+```
+
+```{r box-plot}
+ggplot(birthwt, aes(factor(race), bwt)) + geom_boxplot()
+```
+
+
+## Histograms
+
+See ?geom histogram for list of options
+
+```{r histogram}
+h <- ggplot(faithful, aes(x = waiting))
+h + geom_histogram(binwidth = 30, colour = "black")
+```
+
+* adding color and adjusting the binwidth
+
+```{r histogram-2}
+h <- ggplot(faithful, aes(x = waiting))
+h + geom_histogram(binwidth = 8, fill = "steelblue", colour = "black")
+```
+
+## Bar Plots
+
+```{r barplot}
+ggplot(iris, aes(Species, Sepal.Length)) +
+  geom_bar(stat = "identity")
+```
+
+```{r}
+library(tidyr)
+#df <- melt(iris, id.vars = "Species")
+df <- gather(iris, variable, value, -Species )
+ggplot(df, aes(Species, value, fill = variable)) +
+  geom_bar(stat = "identity")
+```
+
+>>The heights of the bars commonly represent one of two things: either a count of cases in each group, or the values in a column of the data frame. By default, geom_bar uses stat="bin". This makes the height of each bar equal to the number of cases in each group, and it is incompatible with mapping values to the y aesthetic. If you want the heights of the bars to represent values in the data, use stat="identity" and map a value to the y aesthetic.
+
+## Dplyr and Tidyr 
+
+*These two packages are the Swiss army knives of R.
+* dplyr
+  * filter
+  * select
+  * mutate
+* tidyr.
+  * gather
+  * spread
+  * separate   
+
+Let's look at iris again. 
+  
+```{r}
+iris[1:2, ]
+df <- gather(iris, variable, value, -Species ) 
+```
+
+```{r}
+df[1:2, ]
+```
+
+```{r}
+ggplot(df, aes(Species, value, fill = variable)) +
+  geom_bar(stat = "identity", position = "dodge")
+```
+
+
+### Exercise 3
+Using the d2 dataset you created earlier, generate this plot below. Take a quick look at the data first to see if it needs to be binned
+
+```{r exercise-3ans}
+d2 <- diamonds[sample(1:dim(diamonds)[1], 1000), ]
+ggplot(d2, aes(clarity, fill = cut)) +
+  geom_bar(position = "dodge")
+```
+
+
+## Exercise 4
+* Using the climate dataset, create a new variable called sign. Make it logical (true/false) based on the sign of Anomaly10y.
+* Plot a bar plot and use sign variable as the fill.
+* HINT: Look up `ifelse` function to create `clim$sign`
+
+```{r}
+clim <- read.csv('data/climate.csv', header = TRUE)
+clim$sign <- ifelse(clim$Anomaly10y<0, FALSE, TRUE)
+# or as simple as
+# clim$sign <- clim$Anomaly10y < 0
+ggplot(clim, aes(Year, Anomaly10y)) + geom_bar(stat = "identity", aes(fill = sign)) + theme_gray()
+```
+
+## Density Plots 
+
+```{r}
+ggplot(faithful, aes(waiting)) + geom_density()
+```
+
+```{r}
+ggplot(faithful, aes(waiting)) +
+  geom_density(fill = "blue", alpha = 0.1)
+```
+
+
+```{r}
+ggplot(faithful, aes(waiting)) +
+  geom_line(stat = "density")
+```
+
+## Colors
+
+```{r eval=FALSE}
+aes(color = variable) 
+aes(color = "black")
+# Or add it as a scale
+scale_fill_manual(values = c("color1", "color2"))
+```
+```{r color}
+library(RColorBrewer) 
+display.brewer.all() 
+```
+
+### Using a color brewer palette
+
+```{r brewer}
+#df  <- melt(iris, id.vars = "Species")
+ggplot(df, aes(Species, value, fill = variable)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_brewer(palette = "Set1")
+```
+
+### Manual color scale
+```{r manual-color}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+geom_point() +
+facet_grid(Species ~ .) +
+scale_color_manual(values = c("red", "green", "blue"))
+```
+
+
+### With iris data - smooth
+
+```{r smooth-lm}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(aes(shape = Species), size = 3) +
+  geom_smooth(method = "lm")
+```
+
+### Within facet 
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(aes(shape = Species), size = 3) +
+  geom_smooth(method = "lm") +
+  facet_grid(. ~ Species)
+```
+### With iris along coloumns 
+
+```{r facet-columns}
+#str(iris)
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point() +
+  facet_grid(Species ~ .)
+```
+
+### And along rows
+
+```{r facet-rows}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point() +
+  facet_grid(. ~ Species)
+```
+
+### Or wrap your panels
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point() +
+  facet_wrap( ~ Species)
+```
+
+
+## Themes
+
+Themes are a great way to define custom plots.
+
++theme()
+#### see ?theme() for more options
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+geom_point(size = 1.2, shape = 16) +
+facet_wrap( ~ Species) +
+theme(legend.key = element_rect(fill = NA),
+legend.position = "bottom",
+strip.background = element_rect(fill = NA),
+axis.title.y = element_text(angle = 0)) 
+```
+```{r}
+#install.packages('ggthemes')
+library(ggthemes)
+```
+
+## Then add one of these themes to your plot
+ + theme_stata()
+ + theme_excel()
+ + theme_wsj()
+ + theme_solarized()
+
+```{r} 
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+geom_point(size = 1.2, shape = 16) +
+facet_wrap( ~ Species) +
+theme_solarized() +
+theme(legend.key = element_rect(fill = NA),
+legend.position = "bottom",
+strip.background = element_rect(fill = NA),
+axis.title.y = element_text(angle = 0)) 
+```

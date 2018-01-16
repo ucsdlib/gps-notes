@@ -1,0 +1,273 @@
+---
+title: "Plotting with GGPLOT2"
+author: "Tim Dennis & Reid Otsuji"
+date: "January 8, 2016"
+output: 
+  html_document: 
+    toc: yes
+---
+
+**start hopefully 3:25**
+
+
+```{r, include=FALSE}
+source("tools/chunk-options.R")
+opts_chunk$set(fig.path = "fig/08-plot-ggplot2-")
+# Silently load in the data so the rest of the lesson works
+#gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+```
+```{r}
+#install.packages('ggplot2')
+#library(ggplot2)
+```
+
+
+GOALS: Students should be able to use ggplot2 to generate publication quality graphics and understand and use the basics of the grammar of graphics.
+
+* GGPLOT2 developed by Hadley Wickham based on a *grammar-of-graphics*
+* Grammar of graphics consists of a **dataset**, **coordinate system**, and **geoms** -- the visual representation of data points.
+* Think about figure in layers:  like you would in Photoshop, illustrator or Inkscape.
+
+##DataViz
+
+* plotting our data is one of the best was to quickly explore it and the various relationships between variables
+* 3 main plotting systems in R: the base [plotting system](http://www.statmethods.net/graphs/), the [lattice package](http://www.statmethods.net/advgraphs/trellis.html), and [ggplot2](http://www.statmethods.net/advgraphs/ggplot2.html)
+*`ggplot2` is built on the grammar-of-graphics:
+   * idea that any plot can be expressed from the same set of components: a **data** set, a **coodinate system** and a set of **geoms**-- the visual representation of data points
+* **Key** to understanding `ggplot2` is thinking about a figure in layers -- think of ArcGIS or programs like Photoshop
+
+## Terminology:
+
+* **ggplot** - The main function where you specify the dataset and variables to plot
+* **geoms** - geometric objects
+  * `geom_point()`, `geom bar()`, `geom density()`, `geom line()`, `geom area()`
+* **aes** - aesthetics 
+  * shape, transparency (alpha), color, fill, line-type.
+* **scales** Define how your data will be plotted
+  * continuous, discrete, log
+
+## First Plots with GGPLOT
+
+```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
+#gapminder <- read.csv("https://goo.gl/BtBnPg", header = T)
+gapminder <- read.csv('data/gapminder-FiveYearData.csv', header=T)
+```
+
+Let's start off with an example:
+
+```{r gap-scatter}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
+
+NOTE:
+
+* First we call the `ggplot` function -any arguments we provide the `ggplot` function are considered **global** options: they apply to all layers
+* We passed two arguments to `ggplot`:
+  * `data`
+  * an `aes` function - which tells ggplot how variables map to aesthetic properties
+  * `x` & `y` locations
+  * notice we didn't have to define the data and column
+
+Alone the `ggplot` call isn't enough to render the plot.
+
+```{r no_geom, eval=FALSE}
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap))
+## If run, would produce an error.
+```
+
+* Need to tell **ggplot** how we want to present variables by specifying a geom layer. * In the above example we used `geom_point` to create a scatter plot.
+
+```{r lifeExp-vs-gdpPercap-scatter2}
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
+  geom_point()
+```
+
+### Challenge 1
+
+<http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2#challenge-1>
+
+### Challenge 2
+
+<http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2#challenge-2>
+
+## Layers
+
+* Using scatter plot not the best way to visualize change over time. 
+* Let's use line plot.
+
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()
+```
+
+* used `geom_line` instead of `geom_point`
+* added a **by** *aesthetic* to get a line per country and color by continent
+
+
+* visualize both lines and points on the plot?
+
+```{r lifeExp-line-point}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+```
+
+* important to note this is layered: so points have been drawn *on top of* the lines.
+* example of this
+
+```{r lifeExp-layer-example-1}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+  geom_line(aes(color=continent)) + geom_point()
+```
+
+* in the above the *aesthetic* mapping of **color** has been moved from the
+global plot options in `ggplot` to the `geom_line` layer so it no longer applies to the points
+
+### Challenge 3
+
+<http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2#challenge-3>
+
+> > ## Solution to challenge 3
+> >
+> > Switch the order of the point and line layers from the previous example. What
+> > happened?
+> >
+> > ```{r ch3-sol}
+> > ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+> >  geom_point() + geom_line(aes(color=continent))
+> > ```
+> >
+> > The lines now get drawn over the points!
+> >
+
+
+## Transformations and statistics
+
+* easy to overlay statistical models over the data
+* let's use our first example
+
+```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap, color=continent)) +
+  geom_point()
+```
+
+* hard to see relationships b/t points because of strong outliers in GDP/cap
+* We can change the scale of units on the `y` axis using the *scale* functions
+* These control the mapping between the data values and visual values of an aesthetic.
+* We'll also use the `alpha` function, which is helpful when you have a large amount of data which is v. clustered
+
+```{r axis-scale}
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
+  geom_point(alpha=0.5) + scale_y_log10()
+```
+
+* `log10` function applied a transformation to the values of the gdpPercap column before rendering them on the plot
+   * each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, 
+   * e.g. a GDP per capita of **1,000 is now 3** on the y axis, a value of 10,000 corresponds to 4 on the y axis and so on
+* This makes it easier to visualize the spread of data on the y-axis.
+
+* We can fit a simple relationship to the data by adding another layer, `geom_smooth`:
+
+```{r lm-fit}
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
+  geom_point() + scale_y_log10() + geom_smooth(method="lm")
+```
+
+*  make the line thicker by *setting* the **size** aesthetic in the `geom_smooth` layer:
+
+```{r lm-fit2}
+pwd <- ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
+  geom_point() + scale_y_log10() + geom_smooth(method="lm", size=1.5)
+```
+
+* two ways an *aesthetic* can be specified:
+  1. Here we *set* the **size** aesthetic by passing it as an argument to `geom_smooth`.
+  2. use the `aes` function to define a *mapping* between data variables and their visual representation.
+
+### Challenge 4a
+
+<http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2#challenge-3#challenge-4a>
+
+### Challenge 4b
+
+<http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2#challenge-3#challenge-4b>
+
+## Multi-panel figures: FACEting
+
+* previously we visualized the change in life expectancyover time across all countries in one plot
+* we can split this out over multiple panels by adding a layer of **facet** panels
+* to limit the number of panels let's work only on countries beginning in the letter "A" or "Z"
+
+```{r startswa-z}
+starts.with <- substr(gapminder$country, start = 1, stop = 1)
+az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+```
+
+Talk thru code: 
+* We'll start by subsetting the data using the `substr` function topull out a part of a character string; 
+* in this case, the letters that occur in positions `start` through `stop`, inclusive, of the `gapminder$country` vector. 
+* The operator `%in%` allows us to make multiple comparisons rather than write out long subsetting conditions (in this case, `starts.with %in% c("A", "Z")` is equivalent to `starts.with == "A" | starts.with == "Z"`)
+
+```{r facet}
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country)
+```
+
+* `facet_wrap` layer took a "formula" as its argument, denoted by the tilde
+(~).
+* tells R to draw a panel for each unique value in the country column
+of the gapminder dataset.
+
+## Modifying text
+
+* would like to add text to elements in the graph
+* do this by adding a few more layers:
+   * **theme** layer controls axis text & text size
+   * **scales** layer to change legend title
+
+```{r theme}
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1") +
+  scale_colour_discrete(name="Continent") +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+```
+
+<http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2#challenge-5>
+
+This is a taste of what you can do with `ggplot2`. RStudio provides a
+really useful [cheat sheet][cheat] of the different layers available, and more
+extensive documentation is available on the [ggplot2 website][ggplot-doc].
+Finally, if you have no idea how to change something, a quick Google search will
+usually send you to a relevant question and answer on Stack Overflow with reusable
+code to modify!
+
+## How to save your plots
+
+```{r eval=FALSE}
+ggsave('~/path/to/figure/filename.png')
+ggsave(plot1, file = "~/path/to/figure/filename.png")
+```
+
+```{r eval=FALSE}
+ggsave(file = "/path/to/figure/filename.png", width = 6,
+height =4)
+```
+
+```{r eval=FALSE}
+ggsave(file = "/path/to/figure/filename.eps")
+ggsave(file = "/path/to/figure/filename.jpg")
+ggsave(file = "/path/to/figure/filename.pdf")
+```
+
+## Resources:
+
+This is just a taste of what you can do with `ggplot2`. RStudio provides a
+really useful [cheat sheet][cheat] of the different layers available, and more
+extensive documentation is available on the [ggplot2 website][ggplot-doc].
+Finally, if you have no idea how to change something, a quick Google search will
+usually send you to a relevant question and answer on Stack Overflow with reusable
+code to modify!
+
+[cheat]: http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+[ggplot-doc]: http://docs.ggplot2.org/current/
