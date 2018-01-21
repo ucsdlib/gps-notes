@@ -1,0 +1,43 @@
+---
+title: "gps-2018-wk3-notes"
+author: "Reid Otsuji"
+date: "1/20/2018"
+output: html_document
+---
+
+Lessons to cover:
+Subsetting
+Vectorization
+Functions
+Dplyr
+Tidyr - introduce wide to long
+
+
+
+you can almost skip subsetting
+teach dplyr
+
+14, don't do the whole thing
+like, really, i seldom cover tidyR
+
+do this
+show them the wide to long
+introduce it 
+then grab the iris example 
+https://github.com/ucsdlib/workshops/blob/gh-pages/notebooks/ggplot2/ggplot.Rmd#bar-plots
+so you introduce wide to long and hten show them how to do it on iris
+and plot
+to much content in that tidyr lesson, not enough 'why are we doing this?'
+and then move on
+
+yes
+i think showing the soup to nuts thing really works
+you have a dataset that needs to be prepared for viz
+analysis
+chain it thru tidyr, dplyr and then feed into ggplot2 BOOM!
+that's the awesome
+and mention that this is like dipping your toe into a big lake, dplyr, tidyr and ggplot are all huge packages
+can be combinded to deal with all kinds of use cases 
+needs
+types of data
+show them the cheatsheet 
