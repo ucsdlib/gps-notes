@@ -38,40 +38,46 @@ g. Using a R command, find the length of the vector
 ```{r eval=FALSE}
 # Write your code below the # comment:
 # a.
-
-
-
+vector1 <- c(1:10)
+vector1
+```
+```{r eval=FALSE}
 # b.
-
-
-# c. 
-
-
-# d.
-
-
-# e. 
-
-
-
-# f.
-
-
-# g.  
-
-
+paste(vector1, collapse = " ")
 
 ```
+```{r eval=FALSE}
+# c. 
+head(vector1, n=1)
+```
+```{r eval=FALSE}
+# d.
+head(vector1, n=5)
+
+```
+```{r eval=FALSE}
+# e. 
+tail(vector1, n=1)
+```
+```{r eval=FALSE}
+# f.
+tail(vector1, n=5)
+```
+```{r eval=FALSE}
+# g.  
+length(vector1)
+```
+
 
 ### Exercise 2 : Making Vectors 2 (5 points)
 Start by making a vector named 'myvector' with the numbers 1 through 26.
 Create another vector named, 'myvectimestwo' by multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called `LETTERS`)
-```{r eval=FALSE}
+```{r}
 # Write code below:
-x <- 1:26
-x <- x * 2
-names(x) <- LETTERS
-
+myvector <- 1:26
+myvectortimestwo <- myvector * 2
+names(myvector) <- LETTERS
+myvector
 
 ```
 
@@ -99,15 +105,16 @@ The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel
 Load the small cats dataset we created in class (feline-data.csv).  If you don't have this data set, see the Data Structures lesson <https://ucsdlib.github.io/win2018-gps-r/notes-edited/04-data-types.html>
 ```{r eval=FALSE}
 # load the data set
-cats <- read.csv(file="feline-data.csv") # edit the path in the read.csv function to the data file on your computer.
+cats <- read.csv(file="data/feline-data.csv") # edit the path in the read.csv function to the data file on your computer.
 ```
 
 Try using `?read.csv` to figure out how to keep text columns (e.g. coats) as character vectors instead of factors; then write a command or two to show that the factor in `cats` is actually a `character vector` when loaded in this way.
 
 ```{r eval=FALSE}
 # Complete these lines:
-cats <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
-str(cats$coat)
+cats <- read.csv(file="data/feline-data.csv", stringsAsFactors = FALSE) # "stringsAsFactors = FALSE" needs to be added when loading the file
+str(cats$coat) # shows `cats` is actually a character vector
+
 ```
 
 ---
@@ -121,12 +128,13 @@ Create a list of length two containing a character vector for each of the sectio
 Populate each character vector with the **names of the data types and data structures**.
 (Hint: Review data structures lesson) <https://ucsdlib.github.io/win2018-gps-r/notes-edited/04-data-types.html>
 
-```{r eval=FALSE}
+```{r}
 # complete the code
 dataTypes <- c('double', 'complex', 'integer', 'character', 'logical') #character vector 
 dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
  #character vector 
 answer <- list(dataTypes, dataStructures) #list of length two
+answer
 
 ```
 
@@ -137,7 +145,7 @@ answer <- list(dataTypes, dataStructures) #list of length two
 
 2. Write function used to investigate the structure of the dataset `iris`.
 
-```{r eval=FALSE}
+```{r}
 # Write code below:
 
 str(iris)
@@ -153,13 +161,12 @@ str(iris)
 
 5. For the final step, list the commands you would use to find the `levels` attribute for the `species` variable. 
 (Hint: start with assigning the iris database to a variable. Use `levels()` function.)
-```{r eval=FALSE}
+```{r}
 # Write code below:
 df <- iris
 levels(df$Species)
 
 ```
-
 
 ---
 
@@ -169,13 +176,15 @@ levels(df$Species)
 2. Make the "mymatrix" matrix above fill by row, not by column (its default behaviour). Print out the matrix.
 (hint: read the `matrix` lesson section!)
  
-```{r eval=FALSE}
+```{r}
 # Write code below:
+mymatrix <- matrix(1:50, ncol=5, nrow=10)
+mymatrix
+```
 
-x <- matrix(1:50, ncol=5, nrow=10)
-x <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
-
- 
+```{r}
+mymatrix <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
+mymatrix
 ```
  
 ---
