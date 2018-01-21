@@ -1,24 +1,20 @@
 ---
 title: "Homework 2 - R GGPLOT2"
-author: "Tim Dennis & Reid Otsuji"
-date: "1/21/2017"
+author: "Reid Otsuji & Tim Dennis"
+date: "1/19/2018"
 output: 
   html_document: 
     toc: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Due 2/4 - By Midnight 
+## Due 1/25 - By Midnight
 
 ### How to submit your homework:
-1. Download the [r-homework2.R](r-homework2.R) script and open in Rstudio
-2. Rename `r-homework2.R` to `yourlastname_sudentID_r-homework2.R`
-3. Type the answers in the uncommented lines (those without #). 
-4. Save the script file.
-5. Upload the file to tritonEd for assignment 2.  
+1. Download the [r-homework2.Rmd](r-homework2.Rmd) Rmarkdown file and open in Rstudio
+2. Rename `r-homework2.Rmd` to `yourlastname_sudentID_r-homework2.Rmd`
+3. Type the R code answers in the code chunks.
+4. Save the Rmarkdown file.
+5. Submit your assignment by uploading the file to TritonEd for assignment 2.
 
 
 **Remeber to load the ggplot2 package and read in gapminder data**
