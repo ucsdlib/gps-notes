@@ -5,7 +5,7 @@ A repo for coding notebooks, lecture notes, and assignments for the GPS skills c
 ## Lecture notes 2018
 ### R
 
-[Functions](gps-notes/2018/intro-r/10-functions.html)
+[Functions](2018/intro-r/10-functions.html)
 ### Python
 
 ## Homework
