@@ -1,16 +1,22 @@
 ---
-title: "dplyr-pzractice"
+title: "dplyr-practice"
 author: "Reid Otsuji"
 date: "1/21/2018"
 output: html_document
 ---
 
-observations = rows
-variables = columns
 
-base-r 
-grouping variables
-calculate stats 
+Manipulation of dataframes means many things to many researchers:
+we often select certain observations (rows) or variables (columns), we often group the data by a certain variable(s):
+
+* observations = rows
+* variables = columns
+
+or we even calculate summary statistics. We can do these operations using the normal base R operations:
+
+base-r:
+* grouping variables
+* calculate stats 
 
 ```{r}
 # download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
