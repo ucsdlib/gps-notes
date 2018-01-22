@@ -44,7 +44,7 @@ repetition cost time, and could introduce bugs.
 ## dplyr package 
 useful functions for manipulation dataframes efficiently, dplyr grammar might be easier to read
 
-5 most commonly used functions and (%>%) pipe to combine them
+5 most commonly used functions and (%>%) pipe to combine them 
 1. select()
 2. filter()
 3. group_by()
@@ -63,7 +63,7 @@ library("dplyr")
 ```
 
 ## Using select() function
-if we wantedt to move forward with onoy a few of the variables (columns) in our dataframe we could use the select() function. 
+if we wanted to move forward with only a few of the variables (columns) in our dataframe we could use the select() function. 
 This will keep only the variables you select
 
 ```{r}
@@ -76,10 +76,15 @@ year_country_gdp <- select(gapminder, year, country, gdpPercap)
 head(year_country_gdp) #use head to get a sample
 ```
 
-`year_country_gdp` shows variable only contains the year, country, and gdpPercap. 
+* `year_country_gdp` shows variable only contains the year, country, and gdpPercap. 
 We used normal grammar. 
-the benefit of dplyr is using it to combine several functions using pipes. (`%>%`)
+
+* the benefit of dplyr is using it to combine several functions using pipes. (`%>%`)
 since we are introducing pipes, let's repeat what we've done in the previous code using pipes:
+
+* pipe short cut
+ CTRL + SHIFT + M (or CMD + SHIFT + M for OSX)
+ 
 ```{r}
 # redoing varialble using pipes
 year_country_gdp <- gapminder %>% select(year, country, gdpPercap )
