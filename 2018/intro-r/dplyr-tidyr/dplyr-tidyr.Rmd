@@ -14,7 +14,7 @@ GOAL: To be able to use the 6 data frame manipulation in dplyr.
 ### Load data
 
 ```{r}
-setwd('~/workshops/data-workshops/notebooks/dplyr-tidyr/')
+#setwd('~/workshops/data-workshops/notebooks/dplyr-tidyr/')
 #gapminder <- read.csv("https://goo.gl/BtBnPg", header = T)
 gapminder <- read.csv("data/gapminder.csv", header = T)
 ```
@@ -249,8 +249,10 @@ str(gap_long)
 * we've used piping syntax like we did in dplyr
 * in fact, these are compatible and you can use a mix of tidyr and dplyr funcitons togeth
 
-* inside `gather()` we first name the new column for the new ID variable (obstyper_year), the name for the new amalgamated observation variable (obs_value), then the names of the old observation variables.
+* inside `gather()` we first name the new column for the new ID variable (`obstyper_year`), the name for the new amalgamated observation variable (`obs_value`), then the names of the old observation variables.
+
 * we could have typed out all the observation variables but as in the `select()` function in dplyr, we can use `starts_with()` argument to select all variables that start with the desired string
+
 * gather also allows alternate syntax of using the `-` symbol to identify which variabels are not to be gathered (i.e. ID variables)
 
 ![longformat](http://swcarpentry.github.io/r-novice-gapminder/fig/14-tidyr-fig3.png)
@@ -299,7 +301,7 @@ gap_normal <- gap_normal %>% arrange(country,continent,year)
 all.equal(gap_normal,gapminder)
 ```
 * great we've gone from longest format back to the intermediate and didn't introcude any errors in our code
-* now let's conver the long all the way back to the wide
+* now let's convert the long all the way back to the wide
 * in the wide format, we will keep country and continent as ID variables and spread the observations across the 3 metrics (pop, lifeExp, gdpPercap) and time (year)
 * we need appropriate lables for all our new variables (time*metric combinations)
 * we also need to unify our ID varialbes to simplify the process of defining gap_wide

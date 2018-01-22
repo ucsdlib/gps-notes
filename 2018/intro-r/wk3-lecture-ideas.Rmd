@@ -6,11 +6,11 @@ output: html_document
 ---
 
 Lessons to cover:
-Subsetting
-Vectorization
-Functions
-Dplyr
-Tidyr - introduce wide to long
+Subsetting 35min
+Vectorization 10min 
+Functions  45min
+Dplyr 40min
+Tidyr - introduce wide to long 30min
 
 
 
