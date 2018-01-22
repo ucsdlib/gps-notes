@@ -6,6 +6,8 @@ A repo for coding notebooks, lecture notes, and assignments for the GPS skills c
 ### R
 
 [Functions](2018/intro-r/10-functions.html)
+[Dplyr and Tidyr](2018/intro-r/dplyr-tidyr/dplyr-tidyr-update2018.html)
+
 ### Python
 
 ## Homework
