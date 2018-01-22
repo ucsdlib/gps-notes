@@ -1,5 +1,5 @@
 ---
-title: "dplyr-practice"
+title: "dplyr-tidyr lesson"
 author: "Reid Otsuji"
 date: "1/21/2018"
 output: html_document
@@ -112,6 +112,8 @@ year_country_gdp_euro <- gapminder %>%
 head(year_country_gdp_euro) # use head for sample
 ```
 
+### Challenge 1
+
 What's happening:
 1. first pass the gapminder dataframe to the `filter()`
 2. then pass the filtered version of the gapminder dataframe to the `select()`
@@ -139,12 +141,13 @@ str(gapminder %>% group_by(continent))
 
 ## show graphic - gapminder %>% group_by()
 ![gapminder-group](http://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig2.png)
-using group_by() with summarize()
-this will allow us to create new variable(s) by using functions that repeat for each of the continent specific data frames. 
 
-e.g. using group_by() we split original gapminder dataframe into multiple pieces
+* using `group_by()` with `summarize()`
+* this will allow us to create new variable(s) by using functions that repeat for each of the continent specific data frames. 
 
-then run functions e.g. mean(), sd() or summarize()
+* e.g. using group_by() we split original gapminder dataframe into multiple pieces
+
+* then run functions e.g. `mean()`, `sd()` or `summarize()`
 
 ```{r}
 gdp_bycontinents <- gapminder %>% 
@@ -153,12 +156,16 @@ gdp_bycontinents <- gapminder %>%
 
 gdp_bycontinents
 ```
-This allowed us to calculate the mean gdppercap for each continent
+* This allowed us to calculate the mean gdpPercap for each continent
 
-![gap-summarize](http://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig3.png)
+
+![gap-summarize-image](http://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig3.png)
+
+
+### Challenge 2
 
 The fucntion group_by() allows us to group by multiple variables. 
-e.g. let's group by year and contient
+e.g. let's group by `year` and `contient`
 
 ```{r}
 gdp_bycontinents_byyear <- gapminder %>%
@@ -171,7 +178,7 @@ gdp_bycontinents_byyear <- gapminder %>%
 gdp_bycontinents_byyear
 ```
 
-Skip to:
+**Skip to:**
 ## mutate ()
 
 we can also create new variables prior to (or after) summarizing information using mutate()
