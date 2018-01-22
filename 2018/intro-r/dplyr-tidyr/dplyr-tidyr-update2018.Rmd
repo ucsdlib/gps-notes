@@ -211,33 +211,33 @@ This was just a basic introduction to dplyr, it's powerful and if you use R lear
 researchers often want to manipulate their data from the `wide` to `long` format, or vise versa.  
 
 The long format is where:
-1. each column is a variable 
-2. each row is an observation 
+* each column is a variable 
+* each row is an observation 
 
 In the long format, you have 1 column for the `observed variable` and the other columns are `ID variables`
 
 for the `wide` format:
-1. each row is often a site/subject/or patient and you have multiple observation variables containing the same type of data 
-* these can be either repeated observations over time, or observations of multiple variables (or a mix of both)
+* each row is often a `site/subject/or patient` and you have multiple observation variables containing the same type of data 
+* these can be either `repeated observations over time`, or observations of multiple variables` (or a mix of both)
 
-* you man find data input may be simpler or some other applications may prefer the `wide` format. 
+* you may find data input may be simpler or some other applications may prefer the `wide` format. 
 
 * many of R functions have been designed assuming you have `long` format data.
 
-This lesson will introduce transforming your data. 
+** This lesson will introduce transforming your data. **
 
 
-![widevlong](http://swcarpentry.github.io/r-novice-gapminder/fig/14-tidyr-fig1.png)
+![widevlong - image](http://swcarpentry.github.io/r-novice-gapminder/fig/14-tidyr-fig1.png)
 
 
 
-These data formats maily affect readbility. 
+* These data formats maily affect readbility. 
 
-for humans, the wide format is often more intuitive sicne we can often see more of the data on the screen due to its shape. 
+* for humans, the wide format is often more intuitive sicne we can often see more of the data on the screen due to its shape. 
 
-however, the long format is more machine readable and is closer to formatting of databases 
+* however, the long format is more machine readable and is closer to formatting of databases 
 
-The ID variables in our dataframes are similar to the fields in a database and observed variables are like the database values 
+* The ID variables in our dataframes are similar to the fields in a database and observed variables are like the database values 
 
 ```{r}
 # install tidyr and dplyr
@@ -251,7 +251,7 @@ library("tidyr")
 library("dplyr")
 ```
 
-first, lets look at the structure of our orig. gapminder dataframe:
+* first, lets look at the structure of our orig. gapminder dataframe:
 ```{r}
 gapminder$country <- as.character(gapminder$country)
 gapminder$continent <- as.character(gapminder$continent)
@@ -309,7 +309,7 @@ str(gap_long)
 * gather also allows the alternative syntax fo using the `-` symbol to identfy which variables are not to be gathered (i.e. `ID variables`)
 
 
-![longformat](http://swcarpentry.github.io/r-novice-gapminder/fig/14-tidyr-fig4.png)
+![longformat-image](http://swcarpentry.github.io/r-novice-gapminder/fig/14-tidyr-fig4.png)
 
 ```{r}
 gap_long <- gap_wide %>% gather(obstype_year,obs_value,-continent,-country)
@@ -357,7 +357,7 @@ names(gapminder)
 
 *Now we’ve got an intermediate dataframe `gap_normal` with the same dimensions as the original `gapminder`, but the `order of the variables is different`. 
 
-*Let’s fix that before checking if they are `all.equal()`.
+* Let’s fix that before checking if they are `all.equal()`.
 
 ```{r}
 gap_normal <- gap_normal[,names(gapminder)]
@@ -370,7 +370,7 @@ head(gap_normal)
 head(gapminder)
 ```
 
-We’re almost there, the original was sorted by `country`, `continent`, then `year`.
+* We’re almost there, the original was sorted by `country`, `continent`, then `year`.
 
 ```{r}
 gap_normal <- gap_normal %>% arrange(country,continent,year)
