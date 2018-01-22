@@ -5,8 +5,11 @@ A repo for coding notebooks, lecture notes, and assignments for the GPS skills c
 ## Lecture notes 2018
 ### R
 
-[Functions](2018/intro-r/10-functions.html)
-[Dplyr and Tidyr](2018/intro-r/dplyr-tidyr/dplyr-tidyr-update2018.html)
+
+6. [Subsetting](2018/intro-r/06-subsetting.html)
+7. [Vectorization](2018/intro-r/09-vectorization.html)
+8. [Functions](2018/intro-r/10-functions.html)
+9. [Dplyr and Tidyr](2018/intro-r/dplyr-tidyr/dplyr-tidyr-update2018.html)
 
 ### Python
 
