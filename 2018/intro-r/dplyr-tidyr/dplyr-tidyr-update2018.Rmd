@@ -113,6 +113,7 @@ head(year_country_gdp_euro) # use head for sample
 ```
 
 ### Challenge 1
+<http://swcarpentry.github.io/r-novice-gapminder/13-dplyr/>
 
 What's happening:
 1. first pass the gapminder dataframe to the `filter()`
